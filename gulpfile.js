@@ -1,4 +1,11 @@
-var elixir = require('laravel-elixir');
+var elixir = require('laravel-elixir'),
+    gulp = require('gulp'),
+    jf = require('jsonfile'),
+    del = require('del');
+
+var directory = {
+    bower: jf.readFileSync(__dirname + '/.bowerrc').directory
+};
 
 /*
  |--------------------------------------------------------------------------

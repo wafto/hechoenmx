@@ -1,0 +1,16 @@
+{
+  "name": "hechoenmx",
+  "version": "0.0.0",
+  "homepage": "https://github.com/wafto/hechoenmx",
+  "description": "",
+  "main": "",
+  "moduleType": [],
+  "license": "MIT",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ]
+}

@@ -1,4 +1,4 @@
-## Soy Emprendedor
+## RETO #HECHOEN.MX
 Desarrollar una plataforma para promover la presencia de empresas emergentes de TIC y ofrecer mayores oportunidades de negocio para éstas.
 
 ### Notas importantes de desarrollo
