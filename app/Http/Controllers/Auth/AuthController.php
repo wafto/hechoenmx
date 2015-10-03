@@ -1,10 +1,10 @@
 <?php
 
-namespace App\Http\Controllers\Auth;
+namespace HechoEnMx\Http\Controllers\Auth;
 
-use App\User;
+use HechoEnMx\User;
 use Validator;
-use App\Http\Controllers\Controller;
+use HechoEnMx\Http\Controllers\Controller;
 use Illuminate\Foundation\Auth\ThrottlesLogins;
 use Illuminate\Foundation\Auth\AuthenticatesAndRegistersUsers;
 

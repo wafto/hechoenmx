@@ -1,5 +1,5 @@
 suites:
     main:
-        namespace: App
-        psr4_prefix: App
+        namespace: HechoEnMx
+        psr4_prefix: HechoEnMx
         src_path: app
