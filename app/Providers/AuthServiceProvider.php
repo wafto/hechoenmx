@@ -2,9 +2,14 @@
 
 namespace HechoEnMx\Providers;
 
+use HechoEnMx\Permission;
 use Illuminate\Contracts\Auth\Access\Gate as GateContract;
 use Illuminate\Foundation\Support\Providers\AuthServiceProvider as ServiceProvider;
 
+/**
+ * Class AuthServiceProvider
+ * @package HechoEnMx\Providers
+ */
 class AuthServiceProvider extends ServiceProvider
 {
     /**
@@ -13,7 +18,7 @@ class AuthServiceProvider extends ServiceProvider
      * @var array
      */
     protected $policies = [
-        'HechoEnMx\Model' => 'HechoEnMx\Policies\ModelPolicy',
+        //'HechoEnMx\Model' => 'HechoEnMx\Policies\ModelPolicy',
     ];
 
     /**
@@ -26,6 +31,20 @@ class AuthServiceProvider extends ServiceProvider
     {
         $this->registerPolicies($gate);
 
-        //
+        foreach ($this->getPermissions() as $permission) {
+            $gate->define($permission->name, function($user) use ($permission) {
+                return $user->hasRole($permission->roles);
+            });
+        }
+    }
+
+    /**
+     * Fetch all the permissions and roles for authorization.
+     *
+     * @return \Illuminate\Database\Eloquent\Collection|static[]
+     */
+    protected function getPermissions()
+    {
+        return Permission::with('roles')->get();
     }
 }
