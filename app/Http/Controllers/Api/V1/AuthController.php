@@ -11,5 +11,36 @@ use HechoEnMx\Services\AuthService;
  */
 class AuthController extends Controller
 {
-    //
+    /**
+     * Auth Service.
+     *
+     * @var \HechoEnMx\Services\AuthService
+     */
+    protected $authService;
+
+    /**
+     * Constructor.
+     *
+     * @param \HechoEnMx\Services\AuthService $authService
+     */
+    public function __construct(AuthService $authService)
+    {
+        $this->authService = $authService;
+    }
+
+    /**
+     * Validates and authenticate the user with the given credentials.
+     *
+     * @param  Request  $request
+     * @return \Illuminate\Http\JsonResponse
+     */
+    public function store(Request $request)
+    {
+        $email = $request->get('email');
+        $password = $request->get('password');
+
+        $token = $this->authService->authenticate($email, $password);
+
+        return response()->json(compact('token'));
+    }
 }
