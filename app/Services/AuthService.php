@@ -62,6 +62,7 @@ class AuthService
 
         return $this->jwt->fromUser($user, $this->customClaims($user));
     }
+
     /**
      * Get custom claims for the specified user.
      *
@@ -73,5 +74,16 @@ class AuthService
         return [
             'roles' => $user->roles->pluck('name'),
         ];
+    }
+
+    /**
+     * Return the authenticated user.
+     *
+     * @return \HechoEnMx\User
+     * @throws \Tymon\JWTAuth\Exceptions\JWTException
+     */
+    public function user()
+    {
+        return $this->jwt->parseToken()->authenticate();
     }
 }

@@ -1,15 +1,16 @@
 <?php
 
-namespace HechoEnMx\Http\Controllers\Api\V1;
+namespace HechoEnMx\Http\Controllers\Api\V1\Auth;
 
 use Illuminate\Http\Request;
 use HechoEnMx\Services\AuthService;
+use HechoEnMx\Http\Controllers\Api\V1\Controller;
 
 /**
- * Class AuthController
- * @package HechoEnMx\Http\Controllers\Api\V1
+ * Class TokenController
+ * @package HechoEnMx\Http\Controllers\Api\V1\Auth
  */
-class AuthController extends Controller
+class TokenController extends Controller
 {
     /**
      * Auth Service.

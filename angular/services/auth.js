@@ -9,7 +9,8 @@
     service.$inject = ['$http', 'AuthTokenService'];
 
     service ($http, AuthTokenService) {
-        var factory = {};
+        var factory = {},
+            user = null;
 
         factory.login = function(credentials) {
             return $http.post('/api/auth', credentials)
@@ -21,6 +22,10 @@
 
         factory.logout = function() {
             AuthTokenService.remove();
+        };
+
+        factory.refreshUser = function() {
+            
         };
         
         return factory;
