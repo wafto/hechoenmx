@@ -2,8 +2,10 @@
 
 import angular from 'angular';
 import home from './home';
+import search from './search';
 
 export default angular
   .module('hemx.components', [
-    home.name
+    home.name,
+    search.name
   ]);

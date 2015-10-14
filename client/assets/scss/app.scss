@@ -1,6 +1,9 @@
+// DEPENDENCIES
 @import "bootstrap";
+
+// COMMON
+@import "common/variables";
 @import "common/icons";
 
-body {
-  background: white;
-}
+// COMPONENTS
+@import "components/search.header";

@@ -6,15 +6,15 @@ import uiRouter from 'angular-ui-router';
 import common from 'common/common';
 import components from 'components/components';
 
-let deps = [
-  uiRouter, uiBootstrap,
+let DEPENDENCIES = [
+  uiRouter,
+  uiBootstrap,
   components.name,
   common.name
 ];
 
 angular
-  .module('hemx', deps)
-  .config( /*@ngInject*/ ($urlRouterProvider, $locationProvider) => {
-    $locationProvider.html5Mode(true);
+  .module('hemx', DEPENDENCIES)
+  .config( /*@ngInject*/ ($urlRouterProvider) => {
     $urlRouterProvider.otherwise('/');
   });
