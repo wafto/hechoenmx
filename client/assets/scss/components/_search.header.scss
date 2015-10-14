@@ -1,4 +1,8 @@
 .search-header {
+  position: fixed;
+  left: 0;
+  top: 0;
+  height: 60px;
   background: $red;
   box-shadow: 0px 2px 4px 0px rgba(0,0,0,0.20);
 }

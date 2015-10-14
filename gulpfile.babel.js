@@ -6,7 +6,7 @@ import del from 'del';
 import watch from 'gulp-watch';
 
 // SASS
-import sass from 'gulp-sass'
+import sass from 'gulp-sass';
 import autoprefixer from 'gulp-autoprefixer';
 
 // Webpack
@@ -43,7 +43,7 @@ gulp.task('iconfont', function() {
     .pipe(iconfont({
       fontName: 'IconFont',
       normalize: true
-     }))
+    }))
     .pipe(gulp.dest('./public/assets'));
 });
 
@@ -57,7 +57,7 @@ gulp.task('build', (callback) => {
 
 gulp.task('watch', () => {
   watch('./client/app/**/*', () => gulp.start('webpack'));
-  watch('./client/assets/scss/app.scss', () => gulp.start('sass'));
+  watch('./client/assets/scss/**/*.scss', () => gulp.start('sass'));
   watch('./client/assets/svg/**/*.svg', () => gulp.start('iconfont'));
 });
 
