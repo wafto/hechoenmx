@@ -13,4 +13,5 @@ Desarrollar una plataforma para promover la presencia de empresas emergentes de 
 
 ### Autores
 - Aftab Hussain Miranda (wafto.mx@gmail.com)
+- Salvador Lopez Mendoza (simiographics@gmail.com)
 - Eduardo Ortiz Ramírez (edbr.or@gmail.com)
