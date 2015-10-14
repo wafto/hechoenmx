@@ -25,7 +25,9 @@ gulp.task('webpack', () => {
 
 gulp.task('sass', () => {
   return gulp.src('./client/assets/scss/app.scss')
-    .pipe(sass.sync().on('error', sass.logError))
+    .pipe(sass.sync({
+      includePaths: ['./node_modules/bootstrap-sass/assets/stylesheets']
+    }).on('error', sass.logError))
     .pipe(autoprefixer({browsers: ['last 2 version']}))
     .pipe(gulp.dest('./public/assets'));
 });
@@ -54,17 +56,9 @@ gulp.task('build', (callback) => {
 });
 
 gulp.task('watch', () => {
-  watch('./client/app/**/*', () => {
-    gulp.start('webpack');
-  });
-
-  watch('./client/assets/scss/app.scss', () => {
-    gulp.start('sass');
-  });
-
-  watch('./client/assets/svg/**/*.svg', () => {
-    gulp.start('iconfont');
-  });
+  watch('./client/app/**/*', () => gulp.start('webpack'));
+  watch('./client/assets/scss/app.scss', () => gulp.start('sass'));
+  watch('./client/assets/svg/**/*.svg', () => gulp.start('iconfont'));
 });
 
 gulp.task('default', (callback) => {
