@@ -1,6 +1,15 @@
 'use strict';
 
 export default class SearchHeaderController {
-  constructor() {
+  /*@ngInject*/
+  constructor($state, $stateParams) {
+    this.$state = $state;
+    this.query = $stateParams.query || '';
+  }
+
+  makeSearch() {
+    this.$state.transitionTo('search', {
+      query: this.query
+    });
   }
 }

@@ -2,7 +2,7 @@
 
 export default class SearchController {
   /*@ngInject*/
-  constructor($stateParams, $rootScope) {
-    this.results = [1, 2, 4];
+  constructor($stateParams) {
+    this.profile = $stateParams.profileId;
   }
 }

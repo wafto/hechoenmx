@@ -1,3 +1,12 @@
 <div class="search-header">
-  <h1>Hecho en MX</h1>
+  <div class="search-header__brand">
+    <h1>Hecho en MX</h1>
+  </div>
+  <div class="search-header__form">
+    <form ng-submit="vm.makeSearch()">
+      <span class="icon icon-magnifier"></span>
+      <input type="text" placeholder="Busca convocatorias, startups, ..." ng-model="vm.query" ng-focus="true">
+    </form>
+  </div>
+  <div class="search-header__user"></div>
 </div>

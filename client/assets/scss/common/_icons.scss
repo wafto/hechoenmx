@@ -27,7 +27,7 @@
 @function icon-char($filename) {
   $char: "";
 
-  @if $filename == aliada-lady {
+  @if $filename == magnifier {
     $char: "\E001";
   }
 
@@ -45,6 +45,6 @@
   }
 }
 
-.icon-aliada-lady {
-  @include icon(aliada-lady);
+.icon-magnifier {
+  @include icon(magnifier);
 }

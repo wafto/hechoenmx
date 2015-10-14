@@ -12,9 +12,8 @@
     <link rel="stylesheet" href="/assets/app.css">
     <base href="/">
   </head>
-  <body ng-app="hemx" ng-cloak>
-    <ui-view>
-    </ui-view>
+  <body ng-class="@{{bodyClass}}" ng-app="hemx" ng-cloak>
+    <ui-view></ui-view>
     <script src="/assets/app.bundle.js"></script>
   </body>
 </html>

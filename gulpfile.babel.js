@@ -7,6 +7,7 @@ import watch from 'gulp-watch';
 
 // SASS
 import sass from 'gulp-sass';
+import bourbon from 'node-bourbon';
 import autoprefixer from 'gulp-autoprefixer';
 
 // Webpack
@@ -26,7 +27,7 @@ gulp.task('webpack', () => {
 gulp.task('sass', () => {
   return gulp.src('./client/assets/scss/app.scss')
     .pipe(sass.sync({
-      includePaths: ['./node_modules/bootstrap-sass/assets/stylesheets']
+      includePaths: ['./node_modules/bootstrap-sass/assets/stylesheets', bourbon.includePaths]
     }).on('error', sass.logError))
     .pipe(autoprefixer({browsers: ['last 2 version']}))
     .pipe(gulp.dest('./public/assets'));
