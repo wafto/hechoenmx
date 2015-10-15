@@ -21,8 +21,6 @@
     "angular-ui-bootstrap": "^0.14.1",
     "angular-ui-router": "^0.2.15",
     "bootstrap-sass": "^3.3.5",
-    "del": "^2.0.2",
-    "install": "^0.1.8",
     "jquery": "^2.1.4",
     "node-bourbon": "^4.2.3",
     "npm": "^3.3.6"

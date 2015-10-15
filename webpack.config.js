@@ -1,15 +1,21 @@
+'use strict';
+
 var webpack = require('webpack');
 var path = require('path');
 
 module.exports = {
   devtool: 'eval',
+  entry: {
+    app: './client/app/app.js',
+    vendor: ['angular', 'angular-ui-router', 'angular-ui-bootstrap', 'jquery']
+  },
   output: {
-    filename: 'app.bundle.js'
+    filename: 'app.js'
   },
   module: {
     loaders: [{
       test: /\.js$/,
-      exclude: /(node_modules|bower_components)/,
+      exclude: /(node_modules)/,
       loaders: ['ng-annotate', 'babel']
     }, {
       test: /\.html$/,
@@ -18,7 +24,7 @@ module.exports = {
   },
   resolve: {
     root: [path.join(__dirname, 'client/app')],
-    modulesDirectories: ['node_modules', 'bower_components'],
+    modulesDirectories: ['node_modules'],
     extensions: ['', '.js', '.scss', '.html']
   },
   plugins: [
@@ -31,6 +37,7 @@ module.exports = {
       '$': 'jquery',
       'jQuery': 'jquery',
       'window.jQuery': 'jquery'
-    })
+    }),
+    new webpack.optimize.CommonsChunkPlugin('vendor', 'vendor.js')
   ]
 };

@@ -14,6 +14,7 @@
   </head>
   <body ng-class="@{{bodyClass}}" ng-app="hemx" ng-cloak>
     <ui-view></ui-view>
-    <script src="/assets/app.bundle.js"></script>
+    <script src="/assets/vendor.js"></script>
+    <script src="/assets/app.js"></script>
   </body>
 </html>
