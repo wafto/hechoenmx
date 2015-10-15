@@ -1,7 +1,7 @@
 'use strict';
 
-import template from './search.header';
-import controller from './search.header.controller';
+import template from 'common/search.header/search.header';
+import controller from 'common/search.header/search.header.controller';
 
 export default () => {
   return {

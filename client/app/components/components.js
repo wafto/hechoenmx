@@ -1,9 +1,9 @@
 'use strict';
 
 import angular from 'angular';
-import home from './home';
-import search from './search';
-import profile from './profile';
+import home from 'components/home';
+import search from 'components/search';
+import profile from 'components/profile';
 
 export default angular
   .module('hemx.components', [

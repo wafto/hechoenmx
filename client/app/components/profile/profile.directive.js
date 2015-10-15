@@ -1,7 +1,7 @@
 'use strict';
 
-import template from './profile';
-import controller from './profile.controller';
+import template from 'components/profile/profile';
+import controller from 'components/profile/profile.controller';
 
 export default () => {
   return {

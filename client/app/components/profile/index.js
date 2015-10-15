@@ -2,7 +2,7 @@
 
 import angular from 'angular';
 import uiRouter from 'angular-ui-router';
-import Profile from './profile.directive';
+import Profile from 'components/profile/profile.directive';
 
 export default angular
   .module('profile', [uiRouter])
