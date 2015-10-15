@@ -7,7 +7,7 @@ module.exports = {
   devtool: 'eval',
   entry: {
     app: './client/app/app.js',
-    vendor: ['angular', 'angular-ui-router', 'angular-ui-bootstrap', 'jquery']
+    vendor: ['angular', 'angular-ui-router', 'angular-ui-bootstrap', 'angular-local-storage', 'jquery', 'mapbox.js']
   },
   output: {
     filename: 'app.js'
@@ -20,12 +20,15 @@ module.exports = {
     }, {
       test: /\.html$/,
       loader: 'raw'
+    }, {
+      test: /\.json$/,
+      loader: "json"
     }]
   },
   resolve: {
     root: [path.join(__dirname, 'client/app')],
     modulesDirectories: ['node_modules'],
-    extensions: ['', '.js', '.scss', '.html']
+    extensions: ['', '.js', '.scss', '.html', '.json']
   },
   plugins: [
     new webpack.DefinePlugin({

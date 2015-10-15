@@ -2,14 +2,18 @@
 
 export default class SearchHeaderController {
   /*@ngInject*/
-  constructor($state, $stateParams) {
-    this.$state = $state;
-    this.query = $stateParams.query || '';
+  constructor($state) {
+    this.state = $state;
+    this.query = $state.params.query || '';
   }
 
   makeSearch() {
-    this.$state.transitionTo('search', {
+    let shouldRefresh = this.state.current.name != 'search';
+
+    this.state.go('search', {
       query: this.query
+    }, {
+      notify: shouldRefresh
     });
   }
 }

@@ -1,8 +1,20 @@
 <search-header></search-header>
-<div class="float-main-box">
+<div class="map-content">
   <ui-view>
-    <div ng-repeat="result in vm.results">
-      {{result}}
+    <div class="search-results">
+      <div class="search-results__item" id="{{result.id}}" ng-repeat="result in vm.results">
+        <a class="search-results__item__main" ui-sref="profile({profileId: result.id})">
+          <div
+            class="search-results__item__picture"
+            style="background-image: url({{result.picture_url}});"
+          ></div>
+          <div class="search-results__item__desc">
+            <h5>{{result.name}}</h5>
+            <p>{{result.description}}</p>
+          </div>
+        </a>
+      </div>
     </div>
   </ui-view>
 </div>
+<div id="search-map"></div>

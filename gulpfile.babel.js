@@ -27,7 +27,11 @@ gulp.task('webpack', () => {
 gulp.task('sass', () => {
   return gulp.src('./client/assets/scss/app.scss')
     .pipe(sass.sync({
-      includePaths: ['./node_modules/bootstrap-sass/assets/stylesheets', bourbon.includePaths]
+      includePaths: [
+        './node_modules/bootstrap-sass/assets/stylesheets',
+        bourbon.includePaths,
+        './node_modules'
+      ]
     }).on('error', sass.logError))
     .pipe(autoprefixer({browsers: ['last 2 version']}))
     .pipe(gulp.dest('./public/assets'));
