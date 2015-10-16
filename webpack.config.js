@@ -7,7 +7,15 @@ module.exports = {
   devtool: 'eval',
   entry: {
     app: './client/app/app.js',
-    vendor: ['angular', 'angular-ui-router', 'angular-ui-bootstrap', 'angular-local-storage', 'jquery', 'mapbox.js']
+    vendor: [
+      'angular',
+      'angular-ui-router',
+      'angular-ui-bootstrap',
+      'angular-local-storage',
+      'jquery',
+      'mapbox.js',
+      'velocity-animate'
+    ]
   },
   output: {
     filename: 'app.js'

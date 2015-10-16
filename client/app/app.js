@@ -1,3 +1,4 @@
+/*global L*/
 'use strict';
 
 import mapboxConfig from 'config/mapbox.config';

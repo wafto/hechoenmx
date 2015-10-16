@@ -9,8 +9,14 @@ export default class SearchController {
     this.geoService = geoService;
     this.searchService = searchService;
     this.state = $state;
-    this.map = L.mapbox.map('search-map', mapboxConfig.mapId).setView(geoService.latLng, geoService.zoom);
+    this.map = L.mapbox.map('search-map', mapboxConfig.mapId, {
+      zoomControl: false
+    }).setView(geoService.latLng, geoService.zoom);
     this.results = [];
+
+    new L.Control.Zoom({
+      position: 'bottomright'
+    }).addTo(this.map);
 
     if ($state.params.query) {
       this.results = searchService.fetchResults($state.params.query);

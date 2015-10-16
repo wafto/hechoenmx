@@ -30,32 +30,47 @@
   @if $filename == academy {
     $char: "\E001";
   }
-  @if $filename == bolt {
+  @if $filename == arrow-left {
     $char: "\E002";
   }
-  @if $filename == event {
+  @if $filename == arrow-right {
     $char: "\E003";
   }
-  @if $filename == foundation {
+  @if $filename == bolt {
     $char: "\E004";
   }
-  @if $filename == gov {
+  @if $filename == event {
     $char: "\E005";
   }
-  @if $filename == incubator {
+  @if $filename == foundation {
     $char: "\E006";
   }
-  @if $filename == location {
+  @if $filename == gov {
     $char: "\E007";
   }
-  @if $filename == magnifier {
+  @if $filename == incubator {
     $char: "\E008";
   }
-  @if $filename == star {
+  @if $filename == info {
     $char: "\E009";
   }
-  @if $filename == vcfund {
+  @if $filename == location {
     $char: "\E00A";
+  }
+  @if $filename == magnifier {
+    $char: "\E00B";
+  }
+  @if $filename == message {
+    $char: "\E00C";
+  }
+  @if $filename == plus {
+    $char: "\E00D";
+  }
+  @if $filename == star {
+    $char: "\E00E";
+  }
+  @if $filename == vcfund {
+    $char: "\E00F";
   }
 
   @return $char;
@@ -75,6 +90,12 @@
 .icon-academy {
   @include icon(academy);
 }
+.icon-arrow-left {
+  @include icon(arrow-left);
+}
+.icon-arrow-right {
+  @include icon(arrow-right);
+}
 .icon-bolt {
   @include icon(bolt);
 }
@@ -90,11 +111,20 @@
 .icon-incubator {
   @include icon(incubator);
 }
+.icon-info {
+  @include icon(info);
+}
 .icon-location {
   @include icon(location);
 }
 .icon-magnifier {
   @include icon(magnifier);
+}
+.icon-message {
+  @include icon(message);
+}
+.icon-plus {
+  @include icon(plus);
 }
 .icon-star {
   @include icon(star);

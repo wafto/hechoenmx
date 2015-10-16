@@ -1,0 +1,23 @@
+.content-collapse {
+  position: fixed;
+  z-index: z(search-details);
+  top: $search-header-height + 20px;
+  left: 380px;
+  width: 28px;
+  height: 83px;
+  background: $white;
+  box-shadow: 0px 2px 4px 0px rgba(0,0,0,0.15);
+  border-radius: $radius;
+  color: $gray;
+  text-align: center;
+  line-height: 83px;
+  cursor: pointer;
+}
+
+.profile {
+  position: fixed;
+  z-index: z(search-details);
+  top: $search-header-height + 20px;
+  left: 20px;
+  width: 350px;
+}

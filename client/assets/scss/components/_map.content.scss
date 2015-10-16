@@ -1,8 +1,7 @@
 .search-details {
   position: fixed;
   z-index: z(search-details);
-  top: $search-header-height + 20px;
-  left: 20px;
+  transform: translateY($search-header-height + 20px) translateX(20px);
   width: 350px;
   background: $white;
   box-shadow: 0px 2px 4px 0px rgba(0,0,0,0.15);
@@ -121,6 +120,34 @@
         font-size: 12px;
         color: $gray;
         line-height: 20px;
+      }
+    }
+
+    &__actions {
+      border-top: 1px solid $separator;
+      @include clearfix;
+
+      &__action {
+        padding: 5px 10px;
+        display: block;
+        width: 100/3*1%;
+        float: left;
+        text-align: center;
+        font-size: 12px;
+        color: $gray;
+        line-height: 19px;
+        border-left: 1px solid $separator;
+        font-weight: 500;
+        text-decoration: none;
+
+        &:focus {
+          text-decoration: none;
+        }
+
+        &:hover {
+          text-decoration: none;
+          color: $red;
+        }
       }
     }
   }
