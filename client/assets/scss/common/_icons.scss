@@ -30,23 +30,32 @@
   @if $filename == academy {
     $char: "\E001";
   }
-  @if $filename == event {
+  @if $filename == bolt {
     $char: "\E002";
   }
-  @if $filename == foundation {
+  @if $filename == event {
     $char: "\E003";
   }
-  @if $filename == gov {
+  @if $filename == foundation {
     $char: "\E004";
   }
-  @if $filename == incubator {
+  @if $filename == gov {
     $char: "\E005";
   }
-  @if $filename == magnifier {
+  @if $filename == incubator {
     $char: "\E006";
   }
-  @if $filename == vcfund {
+  @if $filename == location {
     $char: "\E007";
+  }
+  @if $filename == magnifier {
+    $char: "\E008";
+  }
+  @if $filename == star {
+    $char: "\E009";
+  }
+  @if $filename == vcfund {
+    $char: "\E00A";
   }
 
   @return $char;
@@ -66,6 +75,9 @@
 .icon-academy {
   @include icon(academy);
 }
+.icon-bolt {
+  @include icon(bolt);
+}
 .icon-event {
   @include icon(event);
 }
@@ -78,8 +90,14 @@
 .icon-incubator {
   @include icon(incubator);
 }
+.icon-location {
+  @include icon(location);
+}
 .icon-magnifier {
   @include icon(magnifier);
+}
+.icon-star {
+  @include icon(star);
 }
 .icon-vcfund {
   @include icon(vcfund);

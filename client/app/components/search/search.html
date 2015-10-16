@@ -1,20 +1,37 @@
 <search-header></search-header>
-<div class="map-content">
-  <ui-view>
-    <div class="search-results">
-      <div class="search-results__item" id="{{result.id}}" ng-repeat="result in vm.results">
-        <a class="search-results__item__main" ui-sref="profile({profileId: result.id})">
-          <div
-            class="search-results__item__picture"
-            style="background-image: url({{result.picture_url}});"
-          ></div>
-          <div class="search-results__item__desc">
-            <h5>{{result.name}}</h5>
-            <p>{{result.description}}</p>
-          </div>
-        </a>
-      </div>
+<ui-view>
+  <div class="search-details" ng-if="vm.results.length > 0">
+    <div class="search-details__main">
+      <h6><strong>{{vm.results.length}}</strong> resultados encontrados</h6>
     </div>
-  </ui-view>
-</div>
+    <div class="search-filters">
+      <a href=""class="search-filters__filter active">
+        <span class="icon-location"></span>
+        Cercanos
+      </a>
+      <a href=""class="search-filters__filter">
+        <span class="icon-star"></span>
+        Populares
+      </a>
+      <a href=""class="search-filters__filter">
+        <span class="icon-bolt"></span>
+        Recientes
+      </a>
+    </div>
+  </div>
+  <div class="search-results">
+    <div class="search-results__item" id="{{result.id}}" ng-repeat="result in vm.results">
+      <a class="search-results__item__main" ui-sref="profile({profileId: result.id})">
+        <div
+          class="search-results__item__picture"
+          style="background-image: url({{result.picture_url}});"
+        ></div>
+        <div class="search-results__item__desc">
+          <h5>{{result.name}}</h5>
+          <p>{{result.description}}</p>
+        </div>
+      </a>
+    </div>
+  </div>
+</ui-view>
 <div id="search-map"></div>

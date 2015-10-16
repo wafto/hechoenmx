@@ -1,7 +1,8 @@
 $z-layers: (
-    "header": 150,
+    "header": 200,
+    "search-details": 150,
     "map-content": 100,
-    "map": 50
+    "map": 50,
 ) !default;
 
 @function z($layer) {
