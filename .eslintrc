@@ -18,13 +18,6 @@ ecmaFeatures:
   experimentalObjectRestSpread: true
 
 globals:
-  React: true
-  aliada: true
-  Conekta: true
-  Stripe: true
-  _: true
-  vex: true
-  expect: true
 
 rules:
   strict: [2, global]

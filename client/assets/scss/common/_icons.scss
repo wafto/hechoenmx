@@ -27,8 +27,26 @@
 @function icon-char($filename) {
   $char: "";
 
-  @if $filename == magnifier {
+  @if $filename == academy {
     $char: "\E001";
+  }
+  @if $filename == event {
+    $char: "\E002";
+  }
+  @if $filename == foundation {
+    $char: "\E003";
+  }
+  @if $filename == gov {
+    $char: "\E004";
+  }
+  @if $filename == incubator {
+    $char: "\E005";
+  }
+  @if $filename == magnifier {
+    $char: "\E006";
+  }
+  @if $filename == vcfund {
+    $char: "\E007";
   }
 
   @return $char;
@@ -45,6 +63,24 @@
   }
 }
 
+.icon-academy {
+  @include icon(academy);
+}
+.icon-event {
+  @include icon(event);
+}
+.icon-foundation {
+  @include icon(foundation);
+}
+.icon-gov {
+  @include icon(gov);
+}
+.icon-incubator {
+  @include icon(incubator);
+}
 .icon-magnifier {
   @include icon(magnifier);
+}
+.icon-vcfund {
+  @include icon(vcfund);
 }

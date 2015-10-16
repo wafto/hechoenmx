@@ -1,0 +1,47 @@
+.map-icon {
+  width: 28px;
+  height: 28px;
+  background: #BA68C8;
+  border: 2px solid #AA52BA;
+  border-radius: 100%;
+  box-shadow: 0 1px 1px rgba(0, 0, 0, .1);
+  color: $white;
+  text-align: center;
+  line-height: 19px;
+
+  &__gov {
+    background: $gov;
+    border-color: darken($gov, 15%);
+    font-size: 17px;
+  }
+
+  &__incubator {
+    background: $incubator;
+    border-color: darken($incubator, 10%);
+    font-size: 19px;
+  }
+
+  &__vcfund {
+    background: $vcfund;
+    border-color: darken($vcfund, 10%);
+    font-size: 19px;
+  }
+
+  &__foundation {
+    background: $foundation;
+    border-color: darken($foundation, 10%);
+    font-size: 13px;
+  }
+
+  &__academy {
+    background: $academy;
+    border-color: darken($academy, 10%);
+    font-size: 18px;
+  }
+
+  &__event {
+    background: $event;
+    border-color: darken($event, 10%);
+    font-size: 18px;
+  }
+}

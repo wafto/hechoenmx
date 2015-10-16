@@ -1,3 +1,4 @@
+/*global L*/
 'use strict';
 
 import mapboxConfig from 'config/mapbox.config';
@@ -13,7 +14,7 @@ export default class SearchController {
 
     if ($state.params.query) {
       this.results = searchService.fetchResults($state.params.query);
-    };
+    }
 
     this.renderMarkers();
 
@@ -50,8 +51,8 @@ export default class SearchController {
 
     for (let result of this.results) {
       let icon = L.divIcon({
-        'className': `map-icon`,
-        'html': '&#9733;',
+        'className': `map-icon map-icon__${result.category}`,
+        'html': `<span class="icon-${result.category}"></span>`,
         'iconSize': null
       });
       let marker = L.marker(result.latLng, {
