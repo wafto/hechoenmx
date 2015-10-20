@@ -2,26 +2,24 @@
 <ui-view>
   <div class="search-details collapsable" ng-if="vm.results.length > 0">
     <div class="search-details__main">
+      <collapse-content></collapse-content>
       <h6><strong>{{vm.results.length}}</strong> resultados encontrados</h6>
     </div>
     <div class="search-filters">
       <a href=""class="search-filters__filter active">
-        <span class="icon-location"></span>
-        Cercanos
+        <span class="icon-location"></span> Cercanos
       </a>
       <a href=""class="search-filters__filter">
-        <span class="icon-star"></span>
-        Populares
+        <span class="icon-star"></span> Populares
       </a>
       <a href=""class="search-filters__filter">
-        <span class="icon-bolt"></span>
-        Recientes
+        <span class="icon-bolt"></span> Recientes
       </a>
     </div>
   </div>
   <div class="search-results collapsable">
     <div class="search-results__item" id="{{result.id}}" ng-repeat="result in vm.results">
-      <a class="search-results__item__main" ui-sref="profile({profileId: result.id})">
+      <a href="" class="search-results__item__main" ng-click="vm.goToProfile(result)">
         <div
           class="search-results__item__picture"
           style="background-image: url({{result.picture_url}});"
@@ -33,23 +31,20 @@
       </a>
       <div class="search-results__item__actions">
         <a href="" class="search-results__item__actions__action">
-          <span class="icon-message"></span>
-          Mensaje
+          <span class="icon-message"></span> Mensaje
         </a>
         <a href="" class="search-results__item__actions__action">
-          <span class="icon-plus"></span>
-          Agregar
+          <span class="icon-plus"></span> Agregar
         </a>
         <a
+          href=""
           class="search-results__item__actions__action"
-          ui-sref="profile({profileId: result.id})"
+          ng-click="vm.goToProfile(result)"
         >
-          <span class="icon-info"></span>
-          Ver más
+          <span class="icon-info"></span> Ver más
         </a>
       </div>
     </div>
   </div>
 </ui-view>
-<collapse-content></collapse-content>
 <div id="search-map"></div>

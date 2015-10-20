@@ -1,3 +1,53 @@
 <div class="profile">
-  <h1>Profile {{vm.profile}}</h1>
+  <collapse-content></collapse-content>
+  <div class="profile__head">
+    <a href="" class="profile__back" ng-click="vm.goBack()">
+      <span class="icon-long-arrow-left"></span>
+    </a>
+    <div class="profile__picture" style="background-image: url({{vm.profile.picture_url}});"></div>
+    <h1>{{vm.profile.name}}</h1>
+    <span class="profile__old">Miembro desde {{vm.profile.created_at | amDateFormat: 'MMMM YYYY'}}</span>
+    <div class="social-links">
+      <a title="{{vm.profile.site}}" target="_blank" ng-href="{{vm.profile.site}}" ng-if="vm.profile.site">
+        <span class="icon-anchor"></span> {{vm.profile.site}}
+      </a>
+      <a title="{{vm.profile.twitter}}" target="_blank" ng-href="{{vm.profile.twitter}}" ng-if="vm.profile.twitter">
+        <span class="icon-twitter"></span> {{vm.profile.twitter}}
+      </a>
+      <a title="{{vm.profile.linkedin}}" target="_blank" ng-href="{{vm.profile.linkedin}}" ng-if="vm.profile.linkedin">
+        <span class="icon-linkedin"></span> {{vm.profile.linkedin}}
+      </a>
+    </div>
+    <div class="profile__actions">
+      <button type="button" class="btn btn-primary btn-sm">
+        <span class="icon-plus"></span> Agregar
+      </button>
+      <button type="button" class="btn btn-primary btn-sm">
+        <span class="icon-message"></span> Mensaje
+      </button>
+    </div>
+  </div>
+  <div class="profile__tabs">
+    <a href="" class="profile__tabs__tab active">Perfil</a>
+    <a href="" class="profile__tabs__tab">Cartera</a>
+    <a href="" class="profile__tabs__tab">Red</a>
+  </div>
+  <div class="profile__content">
+    <div class="profile-about">
+      <section>
+        <h5>Acerca de {{vm.profile.name}}</h5>
+        <p>Crea, valida y desarrolla una idea de éxito en 54 horas. Ya sea que estés preparando el lanzamiento de tu primera compañía, buscando conexiones con líderes de la industria o sientas curiosidad sobre el emprendimiento, ofrecemos un amplio número de programas que te ayudarán a aprender y crecer como innovador.</p>
+      </section>
+
+      <section>
+        <h5>Áreas de experiencia</h5>
+        <span class="label label-border-blue" ng-repeat="area in vm.profile.expertise_areas">{{area}}</span>
+      </section>
+
+      <section>
+        <h5>Ubicación</h5>
+        <p>{{vm.profile.address}}</p>
+      </section>
+    </div>
+  </div>
 </div>

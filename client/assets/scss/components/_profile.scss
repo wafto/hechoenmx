@@ -1,10 +1,11 @@
 .content-collapse {
-  position: fixed;
+  position: absolute;
   z-index: z(search-details);
-  top: $search-header-height + 20px;
-  left: 380px;
+  top: 0;
+  right: -40px;
   width: 28px;
-  height: 83px;
+  height: 100%;
+  max-height: 85px;
   background: $white;
   box-shadow: 0px 2px 4px 0px rgba(0,0,0,0.15);
   border-radius: $radius;
@@ -19,5 +20,123 @@
   z-index: z(search-details);
   top: $search-header-height + 20px;
   left: 20px;
-  width: 350px;
+  width: 450px;
+  background: $gray-background;
+  box-shadow: 0px 2px 4px 0px rgba(0,0,0,0.15);
+  border-radius: $radius;
+
+  &__head {
+    position: relative;
+    padding: 20px 90px 20px 50px;
+    background: $white;
+    border-radius: $radius $radius 0 0;
+
+    h1 {
+      margin: 0;
+      font-size: 16px;
+      line-height: 26px;
+    }
+
+    .social-links {
+      margin-top: 10px;
+    }
+  }
+
+  &__old {
+    display: block;
+    font-size: 12px;
+    color: $gray;
+    line-height: 20px;
+  }
+
+  &__back {
+    position: absolute;
+    left: 20px;
+    top: 23px;
+    color: $gray;
+
+    &:focus, &:hover {
+      color: $red;
+      text-decoration: none;
+    }
+  }
+
+  &__picture {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    width: 70px;
+    height: 70px;
+    @include cover-background;
+  }
+
+  &__actions {
+    margin-top: 15px;
+  }
+
+  &__tabs {
+    overflow: hidden;
+    background: $white;
+    border: 1px solid $separator;
+    border-width: 1px 0 1px 0;
+
+    &__tab {
+      display: block;
+      padding: 12px 0;
+      width: 100/3*1%;
+      float: left;
+      text-align: center;
+      font-size: 12px;
+      color: $gray;
+      line-height: 19px;
+      font-weight: 500;
+      border-left: 1px solid $separator;
+
+      &:hover, &:focus {
+        text-decoration: none;
+      }
+
+      &:first-child {
+        border-left: 0;
+      }
+
+      &.active {
+        color: $black;
+        background: $gray-background;
+        box-shadow: inset 0px -2px 0px 0px $red;
+      }
+    }
+  }
+
+  &__content {
+    padding: 20px;
+  }
+}
+
+.profile-about {
+  section {
+    margin-top: 20px;
+
+    &:first-child {
+      margin-top: 0;
+    }
+  }
+}
+
+.social-links {
+  a {
+    margin: 4px 0;
+    display: inline-block;
+    font-size: 12px;
+    color: $red;
+    line-height: 20px;
+
+    &:focus, &:hover {
+      text-decoration: none;
+    }
+
+    span {
+      margin-right: 3px;
+    }
+  }
 }

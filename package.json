@@ -20,11 +20,13 @@
   "dependencies": {
     "angular": "^1.4.7",
     "angular-local-storage": "^0.2.2",
+    "angular-moment": "^0.10.3",
     "angular-ui-bootstrap": "^0.14.1",
     "angular-ui-router": "^0.2.15",
     "bootstrap-sass": "^3.3.5",
     "jquery": "^2.1.4",
     "mapbox.js": "^2.2.2",
+    "moment": "^2.10.6",
     "node-bourbon": "^4.2.3",
     "npm": "^3.3.6",
     "velocity-animate": "^1.2.3"

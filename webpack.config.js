@@ -12,6 +12,8 @@ module.exports = {
       'angular-ui-router',
       'angular-ui-bootstrap',
       'angular-local-storage',
+      'angular-moment',
+      'moment/locale/es',
       'jquery',
       'mapbox.js',
       'velocity-animate'

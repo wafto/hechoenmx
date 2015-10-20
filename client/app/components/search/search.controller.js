@@ -77,4 +77,10 @@ export default class SearchController {
   onMarkerClick(result) {
     console.log(result);
   }
+
+  goToProfile(result) {
+    this.state.go('profile', {
+      profileId: result.id
+    });
+  }
 }

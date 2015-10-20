@@ -2,7 +2,10 @@
 
 export default class SearchController {
   /*@ngInject*/
-  constructor($stateParams) {
-    this.profile = $stateParams.profileId;
+  constructor($state, profileService) {
+    this.profileService = profileService;
+    this.profile = profileService.findById($state.params.profileId);
   }
+
+  goBack() {}
 }

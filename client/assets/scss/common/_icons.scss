@@ -30,47 +30,59 @@
   @if $filename == academy {
     $char: "\E001";
   }
-  @if $filename == arrow-left {
+  @if $filename == anchor {
     $char: "\E002";
   }
-  @if $filename == arrow-right {
+  @if $filename == arrow-left {
     $char: "\E003";
   }
-  @if $filename == bolt {
+  @if $filename == arrow-right {
     $char: "\E004";
   }
-  @if $filename == event {
+  @if $filename == bolt {
     $char: "\E005";
   }
-  @if $filename == foundation {
+  @if $filename == event {
     $char: "\E006";
   }
-  @if $filename == gov {
+  @if $filename == foundation {
     $char: "\E007";
   }
-  @if $filename == incubator {
+  @if $filename == gov {
     $char: "\E008";
   }
-  @if $filename == info {
+  @if $filename == incubator {
     $char: "\E009";
   }
-  @if $filename == location {
+  @if $filename == info {
     $char: "\E00A";
   }
-  @if $filename == magnifier {
+  @if $filename == linkedin {
     $char: "\E00B";
   }
-  @if $filename == message {
+  @if $filename == location {
     $char: "\E00C";
   }
-  @if $filename == plus {
+  @if $filename == long-arrow-left {
     $char: "\E00D";
   }
-  @if $filename == star {
+  @if $filename == magnifier {
     $char: "\E00E";
   }
-  @if $filename == vcfund {
+  @if $filename == message {
     $char: "\E00F";
+  }
+  @if $filename == plus {
+    $char: "\E010";
+  }
+  @if $filename == star {
+    $char: "\E011";
+  }
+  @if $filename == twitter {
+    $char: "\E012";
+  }
+  @if $filename == vcfund {
+    $char: "\E013";
   }
 
   @return $char;
@@ -89,6 +101,9 @@
 
 .icon-academy {
   @include icon(academy);
+}
+.icon-anchor {
+  @include icon(anchor);
 }
 .icon-arrow-left {
   @include icon(arrow-left);
@@ -114,8 +129,14 @@
 .icon-info {
   @include icon(info);
 }
+.icon-linkedin {
+  @include icon(linkedin);
+}
 .icon-location {
   @include icon(location);
+}
+.icon-long-arrow-left {
+  @include icon(long-arrow-left);
 }
 .icon-magnifier {
   @include icon(magnifier);
@@ -128,6 +149,9 @@
 }
 .icon-star {
   @include icon(star);
+}
+.icon-twitter {
+  @include icon(twitter);
 }
 .icon-vcfund {
   @include icon(vcfund);

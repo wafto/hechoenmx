@@ -8,6 +8,7 @@ import uiRouter from 'angular-ui-router';
 import common from 'common/common';
 import components from 'components/components';
 import searchService from 'services/search.service';
+import profileService from 'services/profile.service';
 import geoService from 'services/geo.service';
 
 L.mapbox.accessToken = mapboxConfig.accessToken;
@@ -19,6 +20,8 @@ let DEPENDENCIES = [
   common.name,
   searchService.name,
   geoService.name,
+  profileService.name,
+  'angularMoment',
   'LocalStorageModule'
 ];
 
