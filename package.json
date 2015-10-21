@@ -25,10 +25,12 @@
     "angular-ui-router": "^0.2.15",
     "bootstrap-sass": "^3.3.5",
     "jquery": "^2.1.4",
+    "lodash": "^3.10.1",
     "mapbox.js": "^2.2.2",
     "moment": "^2.10.6",
     "node-bourbon": "^4.2.3",
     "npm": "^3.3.6",
+    "ui-router-extras": "^0.1.0",
     "velocity-animate": "^1.2.3"
   }
 }

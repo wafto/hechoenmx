@@ -8,7 +8,7 @@ export default angular
   .module('profile', [uiRouter])
   .config( /*@ngInject*/ ($stateProvider) => {
     $stateProvider.state('profile', {
-      url: '^/profile/:profileId',
+      url: '^/profile/:profileId?tab',
       template: '<profile></profile>',
       parent: 'search'
     });

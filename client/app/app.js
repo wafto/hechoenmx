@@ -21,6 +21,7 @@ let DEPENDENCIES = [
   searchService.name,
   geoService.name,
   profileService.name,
+  'ct.ui.router.extras',
   'angularMoment',
   'LocalStorageModule'
 ];

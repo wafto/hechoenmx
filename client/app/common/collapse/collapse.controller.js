@@ -1,5 +1,7 @@
 'use strict';
 
+import Velocity from 'velocity-animate';
+
 export default class SearchHeaderController {
   /*@ngInject*/
   constructor() {
@@ -7,5 +9,19 @@ export default class SearchHeaderController {
   }
 
   handleClick() {
+    let elements = $('.collapsable');
+    let left = 20;
+
+    if (!this.isCollapsed) {
+      left = elements.width() * -1;
+    }
+
+    this.isCollapsed = !this.isCollapsed;
+
+    Velocity(elements, {
+      left: left
+    }, {
+      duration: 500
+    });
   }
 }

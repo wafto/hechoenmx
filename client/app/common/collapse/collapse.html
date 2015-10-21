@@ -1,4 +1,4 @@
-<div class="content-collapse" ng-click="vm.handleClick()">
-  <span class="icon-arrow-left" ng-if="!mv.isCollapsed"></span>
-  <span class="icon-arrow-right" ng-if="mv.isCollapsed"></span>
+<div class="content-collapse" ng-click="vm.handleClick()" ng-class="{collapsed: vm.isCollapsed == true}">
+  <span class="icon-arrow-left"></span>
+  <span class="icon-arrow-right"></span>
 </div>

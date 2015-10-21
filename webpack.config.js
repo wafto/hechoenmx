@@ -10,10 +10,12 @@ module.exports = {
     vendor: [
       'angular',
       'angular-ui-router',
+      'ui-router-extras',
       'angular-ui-bootstrap',
       'angular-local-storage',
       'angular-moment',
       'moment/locale/es',
+      'lodash',
       'jquery',
       'mapbox.js',
       'velocity-animate'
@@ -32,7 +34,7 @@ module.exports = {
       loader: 'raw'
     }, {
       test: /\.json$/,
-      loader: "json"
+      loader: 'json'
     }]
   },
   resolve: {

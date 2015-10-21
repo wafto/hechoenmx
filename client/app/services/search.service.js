@@ -70,12 +70,20 @@ let RESULTS = [{
 
 class SearchService {
   /*@ngInject*/
-  constructor($http) {
+  constructor($http, $q, $timeout) {
+    this.q = $q;
+    this.timeout = $timeout;
     this.http = $http;
   }
 
   fetchResults() {
-    return RESULTS;
+    let deferred = this.q.defer();
+
+    this.timeout(() => {
+      deferred.resolve(RESULTS);
+    }, 1500);
+
+    return deferred.promise;
   }
 }
 

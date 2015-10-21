@@ -1,7 +1,7 @@
-<div class="profile">
+<div class="profile collapsable" ng-if="!vm.loading">
   <collapse-content></collapse-content>
-  <div class="profile__head">
-    <a href="" class="profile__back" ng-click="vm.goBack()">
+  <div class="profile__head" ng-class="{enabled: vm.enableGoBack == true}">
+    <a ui-sref="search" class="profile__back" ng-click="vm.goBack()" ng-if="vm.enableGoBack">
       <span class="icon-long-arrow-left"></span>
     </a>
     <div class="profile__picture" style="background-image: url({{vm.profile.picture_url}});"></div>
@@ -28,12 +28,12 @@
     </div>
   </div>
   <div class="profile__tabs">
-    <a href="" class="profile__tabs__tab active">Perfil</a>
-    <a href="" class="profile__tabs__tab">Cartera</a>
-    <a href="" class="profile__tabs__tab">Red</a>
+    <a href="" ng-click="vm.changeTab('profile')" class="profile__tabs__tab" ng-class="{active: vm.tab === 'profile'}">Perfil</a>
+    <a href="" ng-click="vm.changeTab('portfolio')" class="profile__tabs__tab" ng-class="{active: vm.tab === 'portfolio'}">Cartera</a>
+    <a href="" ng-click="vm.changeTab('network')" class="profile__tabs__tab" ng-class="{active: vm.tab === 'network'}">Red</a>
   </div>
   <div class="profile__content">
-    <div class="profile-about">
+    <div class="profile-about" ng-if="vm.tab === 'profile'">
       <section>
         <h5>Acerca de {{vm.profile.name}}</h5>
         <p>Crea, valida y desarrolla una idea de éxito en 54 horas. Ya sea que estés preparando el lanzamiento de tu primera compañía, buscando conexiones con líderes de la industria o sientas curiosidad sobre el emprendimiento, ofrecemos un amplio número de programas que te ayudarán a aprender y crecer como innovador.</p>
@@ -48,6 +48,56 @@
         <h5>Ubicación</h5>
         <p>{{vm.profile.address}}</p>
       </section>
+    </div>
+
+    <div ng-if="vm.tab === 'portfolio'">
+      <div class="portfolio">
+        <div class="portfolio__item" ng-repeat="portfolioItem in vm.profile.portfolio">
+          <div class="portfolio__item__picture" style="background-image: url({{portfolioItem.image_url}});"></div>
+          <div class="portfolio__item__main">
+            <h5>{{portfolioItem.name}}</h5>
+            <div class="portfolio__item__meta">
+              <span class="portfolio__item__type">{{portfolioItem.type}}</span>
+              <span class="portfolio__item__date">{{portfolioItem.date}}</span>
+            </div>
+            <p>{{portfolioItem.description}}</p>
+            <div class="portfolio__item__tags">
+              <span class="label label-border-blue" ng-repeat="tag in portfolioItem.tags">{{tag}}</span>
+            </div>
+            <a class="btn btn-sm btn-default btn-block" ng-href="{{portfolioItem.more_link}}">¡Saber Más!</a>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div ng-if="vm.tab === 'network'">
+      <div class="line-tabs">
+        <a href="" class="line-tabs__tab active">
+          <stong>{{vm.profile.followers.count}}</stong> Seguidores
+        </a>
+        <a href="" class="line-tabs__tab">
+          <stong>120</stong> Seguiendo
+        </a>
+      </div>
+      <div class="profile-network">
+        <div class="user-card" ng-repeat="user in vm.profile.followers.list">
+          <div class="user-card__picture" style="background-image: url({{user.picture_url}});"></div>
+          <div class="user-card__main">
+            <h5>{{user.name}}</h5>
+            <div class="user-card__actions">
+              <a href="">
+                <span class="icon-plus"></span> Agregar
+              </a>
+              <a href="">
+                <span class="icon-message"></span> Mensaje
+              </a>
+              <a href="">
+                <span class="icon-info"></span> Perfil
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
     </div>
   </div>
 </div>

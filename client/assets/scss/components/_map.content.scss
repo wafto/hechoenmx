@@ -1,7 +1,8 @@
 .search-details {
   position: fixed;
   z-index: z(search-details);
-  transform: translateY($search-header-height + 20px) translateX(20px);
+  top: $search-header-height + 20px;
+  left: 20px;
   width: 350px;
   background: $white;
   box-shadow: 0px 2px 4px 0px rgba(0,0,0,0.15);

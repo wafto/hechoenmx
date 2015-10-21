@@ -5,7 +5,9 @@ import mapboxConfig from 'config/mapbox.config';
 
 export default class SearchController {
   /*@ngInject*/
-  constructor($state, $scope, searchService, geoService) {
+  constructor($state, $scope, $previousState, searchService, geoService) {
+    this.markers = null;
+    this.previousState = $previousState;
     this.geoService = geoService;
     this.searchService = searchService;
     this.state = $state;
@@ -13,16 +15,19 @@ export default class SearchController {
       zoomControl: false
     }).setView(geoService.latLng, geoService.zoom);
     this.results = [];
-
+    this.loading = true;
     new L.Control.Zoom({
       position: 'bottomright'
     }).addTo(this.map);
 
     if ($state.params.query) {
-      this.results = searchService.fetchResults($state.params.query);
+      $previousState.memo('searchMaked');
+      searchService.fetchResults($state.params.query).then(results => {
+        this.results = results;
+        this.loading = false;
+        this.renderMarkers();
+      });
     }
-
-    this.renderMarkers();
 
     this.map.on('zoomend', this.onZoom.bind(this));
     this.map.on('dragend', this.onDragEnd.bind(this));
@@ -32,10 +37,16 @@ export default class SearchController {
 
   onUpdate() {
     let query = this.state.params.query;
-    if (!query) return;
 
-    this.results = this.searchService.fetchResults(query);
-    this.renderMarkers();
+    if (!query) return;
+    this.results = [];
+    this.loading = true;
+    this.previousState.memo('searchMaked');
+    this.searchService.fetchResults(query).then(results => {
+      this.results = results;
+      this.loading = false;
+      this.renderMarkers();
+    });
   }
 
   onZoom() {
@@ -55,6 +66,10 @@ export default class SearchController {
   renderMarkers() {
     let markers = new L.MarkerClusterGroup();
 
+    if (this.markers) {
+      this.map.removeLayer(this.markers);
+    }
+
     for (let result of this.results) {
       let icon = L.divIcon({
         'className': `map-icon map-icon__${result.category}`,
@@ -70,12 +85,11 @@ export default class SearchController {
       marker.bindPopup(content);
       markers.addLayer(marker);
     }
-
+    this.markers = markers;
     this.map.addLayer(markers);
   }
 
   onMarkerClick(result) {
-    console.log(result);
   }
 
   goToProfile(result) {
