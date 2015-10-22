@@ -24,6 +24,7 @@
     "angular-ui-bootstrap": "^0.14.1",
     "angular-ui-router": "^0.2.15",
     "bootstrap-sass": "^3.3.5",
+    "debug": "^2.2.0",
     "jquery": "^2.1.4",
     "lodash": "^3.10.1",
     "mapbox.js": "^2.2.2",

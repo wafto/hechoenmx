@@ -1,6 +1,9 @@
 /*global L*/
 'use strict';
 
+global.aliadaDebug = require('debug');
+global.aliadaDebug.enable('*');
+
 import mapboxConfig from 'config/mapbox.config';
 import angular from 'angular';
 import uiBootstrap from 'angular-ui-bootstrap';

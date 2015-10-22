@@ -1,5 +1,6 @@
 'use strict';
 
+import _ from 'lodash';
 import angular from 'angular';
 
 let RESULTS = [{
@@ -80,7 +81,7 @@ class SearchService {
     let deferred = this.q.defer();
 
     this.timeout(() => {
-      deferred.resolve(RESULTS);
+      deferred.resolve(_.shuffle(RESULTS));
     }, 1500);
 
     return deferred.promise;

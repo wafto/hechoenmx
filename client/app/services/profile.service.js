@@ -1,5 +1,6 @@
 'use strict';
 
+import _ from 'lodash';
 import angular from 'angular';
 
 const PROFILE = {
@@ -15,52 +16,70 @@ const PROFILE = {
   'created_at': '2008-11-11',
   'site': 'http://startupweekend.org/',
   'twitter': 'http://twitter.com/startupweeknd',
-  'linkedin': 'http://linkedin.com/company/startupweeknd',
-  'portfolio': [{
-    'name': 'Startup Weekend Mexico City @ ITAM',
-    'type': 'event',
-    'date': 'Viernes 23 al 25, octubre, 2015',
-    'description': '¡54 horas llenas de ideas, mentorías, experiencias, amistades, dinámicas, juego y mucho premios!',
-    'tags': ['Evento', 'Fin de semana', 'Innovación'],
-    'image_url': 'http://i.ytimg.com/vi/cPScUWwP6ec/hqdefault.jpg',
-    'more_link': 'https://www.google.com/',
-    'upvotes': '9991'
-  }, {
-    'name': 'Startup Weekend Mexico City @ ITAM',
-    'type': 'event',
-    'date': 'Viernes 23 al 25, octubre, 2015',
-    'description': '¡54 horas llenas de ideas, mentorías, experiencias, amistades, dinámicas, juego y mucho premios!',
-    'tags': ['Evento', 'Fin de semana', 'Innovación'],
-    'image_url': 'http://i.ytimg.com/vi/cPScUWwP6ec/hqdefault.jpg',
-    'more_link': 'https://www.google.com/',
-    'upvotes': '9991'
-  }, {
-    'name': 'Startup Weekend Mexico City @ ITAM',
-    'type': 'event',
-    'date': 'Viernes 23 al 25, octubre, 2015',
-    'description': '¡54 horas llenas de ideas, mentorías, experiencias, amistades, dinámicas, juego y mucho premios!',
-    'tags': ['Evento', 'Fin de semana', 'Innovación'],
-    'image_url': 'http://i.ytimg.com/vi/cPScUWwP6ec/hqdefault.jpg',
-    'more_link': 'https://www.google.com/',
-    'upvotes': '9991'
-  }],
-  'followers': {
-    count: '1231',
-    list: [{
-      'id': '123',
-      'name': 'Cúrsame',
-      'picture_url': 'https://pbs.twimg.com/profile_images/555515905401040896/FdTBA3iG.png'
-    }, {
-      'id': '123',
-      'name': 'Cúrsame',
-      'picture_url': 'https://pbs.twimg.com/profile_images/555515905401040896/FdTBA3iG.png'
-    }, {
-      'id': '123',
-      'name': 'Cúrsame',
-      'picture_url': 'https://pbs.twimg.com/profile_images/555515905401040896/FdTBA3iG.png'
-    }]
-  }
+  'linkedin': 'http://linkedin.com/company/startupweeknd'
 };
+
+const PORTFOLIO = [{
+  'name': 'Startup Weekend Mexico City @ ITAM',
+  'type': 'event',
+  'date': 'Viernes 23 al 25, octubre, 2015',
+  'description': '¡54 horas llenas de ideas, mentorías, experiencias, amistades, dinámicas, juego y mucho premios!',
+  'tags': ['Evento', 'Fin de semana', 'Innovación'],
+  'image_url': 'http://i.ytimg.com/vi/cPScUWwP6ec/hqdefault.jpg',
+  'more_link': 'https://www.google.com/',
+  'upvotes': '9991'
+}, {
+  'name': 'Startup Weekend Mexico City @ ITAM',
+  'type': 'event',
+  'date': 'Viernes 23 al 25, octubre, 2015',
+  'description': '¡54 horas llenas de ideas, mentorías, experiencias, amistades, dinámicas, juego y mucho premios!',
+  'tags': ['Evento', 'Fin de semana', 'Innovación'],
+  'image_url': 'http://i.ytimg.com/vi/cPScUWwP6ec/hqdefault.jpg',
+  'more_link': 'https://www.google.com/',
+  'upvotes': '9991'
+}, {
+  'name': 'Startup Weekend Mexico City @ ITAM',
+  'type': 'event',
+  'date': 'Viernes 23 al 25, octubre, 2015',
+  'description': '¡54 horas llenas de ideas, mentorías, experiencias, amistades, dinámicas, juego y mucho premios!',
+  'tags': ['Evento', 'Fin de semana', 'Innovación'],
+  'image_url': 'http://i.ytimg.com/vi/cPScUWwP6ec/hqdefault.jpg',
+  'more_link': 'https://www.google.com/',
+  'upvotes': '9991'
+}];
+
+const NETWORK_COUNT = {
+  followers: '1231',
+  following: '9999921'
+};
+
+const FOLLOWERS = [{
+  'id': '123',
+  'name': 'Cúrsame',
+  'picture_url': 'https://pbs.twimg.com/profile_images/555515905401040896/FdTBA3iG.png'
+}, {
+  'id': '123',
+  'name': 'Cúrsame',
+  'picture_url': 'https://pbs.twimg.com/profile_images/555515905401040896/FdTBA3iG.png'
+}, {
+  'id': '123',
+  'name': 'Cúrsame',
+  'picture_url': 'https://pbs.twimg.com/profile_images/555515905401040896/FdTBA3iG.png'
+}];
+
+const FOLLOWING = [{
+  'id': '123',
+  'name': 'Cúrsame',
+  'picture_url': 'https://pbs.twimg.com/profile_images/555515905401040896/FdTBA3iG.png'
+}, {
+  'id': '123',
+  'name': 'Cúrsame',
+  'picture_url': 'https://pbs.twimg.com/profile_images/555515905401040896/FdTBA3iG.png'
+}, {
+  'id': '123',
+  'name': 'Cúrsame',
+  'picture_url': 'https://pbs.twimg.com/profile_images/555515905401040896/FdTBA3iG.png'
+}];
 
 class ProfileService {
   /*@ngInject*/
@@ -70,11 +89,51 @@ class ProfileService {
     this.http = $http;
   }
 
-  findById() {
+  findById(profileId) {
     let deferred = this.q.defer();
 
     this.timeout(() => {
       deferred.resolve(PROFILE);
+    }, 500);
+
+    return deferred.promise;
+  }
+
+  getPortfolioById(profileId) {
+    let deferred = this.q.defer();
+
+    this.timeout(() => {
+      deferred.resolve(PORTFOLIO);
+    }, 500);
+
+    return deferred.promise;
+  }
+
+  getNetworkCountById(profileId) {
+    let deferred = this.q.defer();
+
+    this.timeout(() => {
+      deferred.resolve(NETWORK_COUNT);
+    }, 500);
+
+    return deferred.promise;
+  }
+
+  getFollowersById(profileId) {
+    let deferred = this.q.defer();
+
+    this.timeout(() => {
+      deferred.resolve(_.shuffle(FOLLOWERS));
+    }, 500);
+
+    return deferred.promise;
+  }
+
+  getFollowingById(profileId) {
+    let deferred = this.q.defer();
+
+    this.timeout(() => {
+      deferred.resolve(_.shuffle(FOLLOWING));
     }, 500);
 
     return deferred.promise;
