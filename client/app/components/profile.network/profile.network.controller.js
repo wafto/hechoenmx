@@ -6,8 +6,11 @@ export default class ProfileAboutController {
     this.state = $state;
     this.profileService = profileService;
     this.currentTab = 'followers';
+    this.countLoading = true;
+    this.loading = true;
 
     profileService.getNetworkCountById(this.state.params.profileId).then(networkCount => {
+      this.countLoading = false;
       this.networkCount = networkCount;
     });
 
@@ -25,17 +28,21 @@ export default class ProfileAboutController {
   }
 
   fetchFollowers() {
+    this.loading = true;
     this.followers = [];
 
     this.profileService.getFollowersById(this.state.params.profileId).then(followers => {
+      this.loading = false;
       this.followers = followers;
     });
   }
 
   fetchFollowing() {
+    this.loading = true;
     this.following = [];
 
     this.profileService.getFollowingById(this.state.params.profileId).then(following => {
+      this.loading = false;
       this.following = following;
     });
   }
