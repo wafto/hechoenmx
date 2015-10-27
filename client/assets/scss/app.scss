@@ -17,12 +17,16 @@ $font-family-sans-serif: Poppins, "Helvetica Neue", Helvetica, Arial, sans-serif
 
 // OBJECTS
 @import "objects/map.icons";
+@import "objects/buttons";
 
 // COMPONENTS
 @import "components/search.header";
 @import "components/search.map";
+@import "components/user.menu";
 @import "components/map.content";
 @import "components/profile";
+@import "components/sessions";
+@import "components/row_form_group";
 
 p {
   font-size: 12px;

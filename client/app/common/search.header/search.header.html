@@ -1,6 +1,8 @@
 <div class="search-header">
   <div class="search-header__brand">
-    <h1>Hecho en MX</h1>
+    <a ui-sref="home" title="Hecho En MX">
+      <span class="icon-logo"></span>
+    </a>
   </div>
   <div class="search-header__form">
     <form ng-submit="vm.makeSearch()">
@@ -8,5 +10,7 @@
       <input type="text" placeholder="Busca convocatorias, startups, ..." ng-model="vm.query" ng-focus="true">
     </form>
   </div>
-  <div class="search-header__user"></div>
+  <div class="search-header__user">
+    <user-menu></user-menu>
+  </div>
 </div>

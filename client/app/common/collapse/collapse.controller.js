@@ -21,7 +21,7 @@ export default class SearchHeaderController {
     Velocity(elements, {
       left: left
     }, {
-      duration: 500
+      duration: 300
     });
   }
 }

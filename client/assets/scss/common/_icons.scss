@@ -39,50 +39,65 @@
   @if $filename == arrow-right {
     $char: "\E004";
   }
-  @if $filename == bolt {
+  @if $filename == bell {
     $char: "\E005";
   }
-  @if $filename == event {
+  @if $filename == bolt {
     $char: "\E006";
   }
-  @if $filename == foundation {
+  @if $filename == event {
     $char: "\E007";
   }
-  @if $filename == gov {
+  @if $filename == foundation {
     $char: "\E008";
   }
-  @if $filename == incubator {
+  @if $filename == gov {
     $char: "\E009";
   }
-  @if $filename == info {
+  @if $filename == inbox {
     $char: "\E00A";
   }
-  @if $filename == linkedin {
+  @if $filename == incubator {
     $char: "\E00B";
   }
-  @if $filename == location {
+  @if $filename == info {
     $char: "\E00C";
   }
-  @if $filename == long-arrow-left {
+  @if $filename == key-outline {
     $char: "\E00D";
   }
-  @if $filename == magnifier {
+  @if $filename == linkedin {
     $char: "\E00E";
   }
-  @if $filename == message {
+  @if $filename == location {
     $char: "\E00F";
   }
-  @if $filename == plus {
+  @if $filename == logo {
     $char: "\E010";
   }
-  @if $filename == star {
+  @if $filename == long-arrow-left {
     $char: "\E011";
   }
-  @if $filename == twitter {
+  @if $filename == magnifier {
     $char: "\E012";
   }
-  @if $filename == vcfund {
+  @if $filename == message {
     $char: "\E013";
+  }
+  @if $filename == plus {
+    $char: "\E014";
+  }
+  @if $filename == star {
+    $char: "\E015";
+  }
+  @if $filename == twitter {
+    $char: "\E016";
+  }
+  @if $filename == user-outline {
+    $char: "\E017";
+  }
+  @if $filename == vcfund {
+    $char: "\E018";
   }
 
   @return $char;
@@ -111,6 +126,9 @@
 .icon-arrow-right {
   @include icon(arrow-right);
 }
+.icon-bell {
+  @include icon(bell);
+}
 .icon-bolt {
   @include icon(bolt);
 }
@@ -123,17 +141,26 @@
 .icon-gov {
   @include icon(gov);
 }
+.icon-inbox {
+  @include icon(inbox);
+}
 .icon-incubator {
   @include icon(incubator);
 }
 .icon-info {
   @include icon(info);
 }
+.icon-key-outline {
+  @include icon(key-outline);
+}
 .icon-linkedin {
   @include icon(linkedin);
 }
 .icon-location {
   @include icon(location);
+}
+.icon-logo {
+  @include icon(logo);
 }
 .icon-long-arrow-left {
   @include icon(long-arrow-left);
@@ -152,6 +179,9 @@
 }
 .icon-twitter {
   @include icon(twitter);
+}
+.icon-user-outline {
+  @include icon(user-outline);
 }
 .icon-vcfund {
   @include icon(vcfund);

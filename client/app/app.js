@@ -13,6 +13,7 @@ import components from 'components/components';
 import searchService from 'services/search.service';
 import profileService from 'services/profile.service';
 import geoService from 'services/geo.service';
+import userService from 'services/user.service';
 
 L.mapbox.accessToken = mapboxConfig.accessToken;
 
@@ -24,6 +25,7 @@ let DEPENDENCIES = [
   searchService.name,
   geoService.name,
   profileService.name,
+  userService.name,
   'ct.ui.router.extras',
   'angularMoment',
   'LocalStorageModule'
