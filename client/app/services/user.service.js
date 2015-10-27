@@ -11,19 +11,30 @@ const USER = {
 
 export default class UserService {
   /*@ngInject*/
-  constructor(localStorageService, $http, $rootScope) {
-    this.$rootScope = $rootScope;
+  constructor(localStorageService, $q, $timeout, $http) {
     this.user = null;
     this.http = $http;
+    this.q = $q;
+    this.timeout = $timeout;
   }
 
-  login() {
-    this.user = USER;
+  login(email, password) {
+    let deferred = this.q.defer();
+
+    this.timeout(() => {
+      if (password == 'admin') {
+        this.user = USER;
+        deferred.resolve(null, USER);
+      } else {
+        deferred.resolve(new Error('Bad credentials'), null);
+      }
+    }, 500);
+
+    return deferred.promise;
   }
 
   logout() {
     this.user = null;
-    this.$rootScope.$apply();
   }
 
   get isLoggedIn() {

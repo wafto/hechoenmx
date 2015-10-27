@@ -11,4 +11,10 @@ export default class SearchResultsController {
   onResultsChange(newResults) {
     this.results = JSON.parse(newResults);
   }
+
+  goToProfile(profileId) {
+    this.state.go('profile', {
+      profileId: profileId
+    });
+  }
 }

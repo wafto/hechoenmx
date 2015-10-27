@@ -2,12 +2,11 @@
 
 export default class SearchHeaderController {
   /*@ngInject*/
-  constructor(UserService, $uibModal) {
+  constructor(UserService, $uibModal, $state) {
+    this.state = $state;
     this.uibModal = $uibModal;
     this.UserService = UserService;
     this.isLoggedIn = this.UserService.isLoggedIn;
-
-    this.openSignupModal();
   }
 
   openLoginModal() {
@@ -28,6 +27,9 @@ export default class SearchHeaderController {
 
   logout() {
     this.UserService.logout();
+    this.state.go('search', {}, {
+      reload: true
+    });
   }
 
   doStuff() {
