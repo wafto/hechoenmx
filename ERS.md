@@ -167,12 +167,25 @@ mx_C implementa el tipo de usuario Innovador, sin embargo presentamos las funcio
 
 
 ####Escalabilidad
-La aplicación cuenta con una arquitectura que permite ser desplegada fácilmente a partir del repositorio base mediante un deploy script y está desarrollada de tal forma que puede escalar de forma horizontal, con autenticación mediante JWT, preservando la sesión de cada usuario mediante local storage y además es una Aplicación desarrollada utilizando software libre sin incurrir en costos de licenciamiento.
+mx_C está desarrollado con la misma arquitectura que proponemos utilizar para #HechoEnMX, lo que le permite ser desplegada fácilmente a partir del repositorio base mediante un deploy script y está desarrollada de tal forma que puede escalar de forma horizontal, con autenticación mediante JWT, preservando la sesión de cada usuario mediante local storage y además es una Aplicación desarrollada utilizando software libre sin incurrir en costos de licenciamiento.
 
+La infraestructura ideal para el despliegue de la aplicación web completa considera el uso de:
 
-####Reportes y Analíticas
+- Servidor provisionado como balanceador de carga
+- Servidor de base de datos central
+- Servidor de aplicación
 
-
+Sobre esta infraestrctura, y gracias a la arquitectura de la aplicación, los recursos utilizados para escalar se optimizan ampliamente, ya que se pueden crear servidores para la aplicación conforme se requieran de acuerdo al número de usuarios concurrentes y el número de transacciones.
 
 ####Soporte Tecnológico
+Nuestra propuesta contempla el desarrollo de un plan LTS (Long Term Support) para el aplicativo, incluyendo tres rubros: Bugfixes, Change Requests y New Features, integrados en un esquema de metodología ágil que nos permitirá mantener la aplicación, mejorarla incrementalmente y optimizar su desempeño.
+
+De forma paralela, el framework utilizado, Laravel 5, también contempla un esquema de soporte a largo plazo, considerando dos años para bug fixes y cuatro años para mejoras de seguridad.
+
+####Reportes y Analíticas
+En el prototipo se ha instalado el tracking code de Piwik Analytics, herramienta abierta que cuenta con caracteristicas similares a las de Google Analytics pero con la partculairdad de que es auto hospedada, por lo cual la propiedad de los datos no pertenece a terceros. Esta herramienta nos provee información de sesiones, vistas individuales, ubicación geográfica, tiempo de visita, método de adquisición, entre otros.
+
+Asī mismo se planea implementar otro tracking code, perteneciente a HotJar, herramienta de análisis de experiencia de usuario (UX) que nos permite grabar el comportamiento de los visitantes por vista individual, mostrando datos sobre la interacción en puntos de contacto (Click, Movimiento, Scrolling) y grabando sesiones completas de uso de la aplicación.
+
+
 
