@@ -15,6 +15,7 @@
   <body ng-class="@{{bodyClass}}" ng-app="hemx" ng-cloak>
     <ui-view></ui-view>
     <script src="/assets/vendor.js"></script>
+    <script src="https://cdn.jsdelivr.net/angular.ng-notify/0.6.3/ng-notify.min.js"></script>
     <script src='https://api.tiles.mapbox.com/mapbox.js/plugins/leaflet-markercluster/v0.4.0/leaflet.markercluster.js'></script>
     <link href='https://api.tiles.mapbox.com/mapbox.js/plugins/leaflet-markercluster/v0.4.0/MarkerCluster.css' rel='stylesheet' />
     <link href='https://api.tiles.mapbox.com/mapbox.js/plugins/leaflet-markercluster/v0.4.0/MarkerCluster.Default.css' rel='stylesheet' />

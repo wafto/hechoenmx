@@ -28,6 +28,7 @@ let DEPENDENCIES = [
   profileService.name,
   userService.name,
   onboardingService.name,
+  'ngNotify',
   'ct.ui.router.extras',
   'angularMoment',
   'LocalStorageModule'

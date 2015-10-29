@@ -26,7 +26,19 @@ export default class SearchMapController {
     }).addTo(this.map);
 
     this.renderMarkers();
+    this.bindEvents();
   }
+
+  bindEvents() {
+    let self = this;
+
+    $('body').on('click', '.pin-popup-profile', function(event) {
+      let profileId = $(this).closest('.pin-popup').data().id;
+      self.state.go('profile', {profileId});
+      event.preventDefault();
+    });
+  }
+
 
   onResultsChange(newResults) {
     this.results = JSON.parse(newResults);
@@ -42,22 +54,49 @@ export default class SearchMapController {
     }
 
     for (let result of this.results) {
-      let icon = L.divIcon({
-        'className': `map-icon map-icon__${result.category}`,
-        'html': `<span class="icon-${result.category}"></span>`,
-        'iconSize': null
-      });
-      let marker = L.marker(result.latLng, {
-        icon: icon
-      });
-      let content = `<h1>${result.name}</h1>`;
+      let marker = this.generateMarker(result);
+      let content = this.generateMarkerHTMLContent(result);
 
-      marker.on('click', this.onMarkerClick.bind(this, result));
       marker.bindPopup(content);
       markers.addLayer(marker);
     }
+
     this.markers = markers;
     this.map.addLayer(markers);
+  }
+
+  generateMarkerHTMLContent({id, 'picture_url':pictureUrl, name, description}) {
+    return `
+      <div class="pin-popup" data-id="${id}">
+        <div class="pin-popup__picture" style="background-image: url('${pictureUrl}')"></div>
+        <h1>${name}</h1>
+        <p>${description}</p>
+        <a href="" class="pin-popup-add">
+          <span class="icon-plus"></span> Agregar
+        </a>
+        <a href="" class="pin-popup-message">
+          <span class="icon-message"></span> Mensaje
+        </a>
+        <a href="" class="pin-popup-profile">
+          <span class="icon-info"></span> Perfil
+        </a>
+      </div>
+    `;
+  }
+
+  generateIcon(category) {
+    return L.divIcon({
+      'className': `map-icon map-icon__${category}`,
+      'html': `<span class="icon-${category}"></span>`,
+      'iconSize': null
+    });
+  }
+
+  generateMarker(result) {
+    let icon = this.generateIcon(result.category);
+    return L.marker(result.latLng, {
+      icon: icon
+    });
   }
 
   onZoom() {
