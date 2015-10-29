@@ -42,62 +42,86 @@
   @if $filename == bell {
     $char: "\E005";
   }
-  @if $filename == bolt {
+  @if $filename == bill {
     $char: "\E006";
   }
-  @if $filename == event {
+  @if $filename == bolt {
     $char: "\E007";
   }
-  @if $filename == foundation {
+  @if $filename == building {
     $char: "\E008";
   }
-  @if $filename == gov {
+  @if $filename == calendar {
     $char: "\E009";
   }
-  @if $filename == inbox {
+  @if $filename == code-sheet {
     $char: "\E00A";
   }
-  @if $filename == incubator {
+  @if $filename == event {
     $char: "\E00B";
   }
-  @if $filename == info {
+  @if $filename == foundation {
     $char: "\E00C";
   }
-  @if $filename == key-outline {
+  @if $filename == gov {
     $char: "\E00D";
   }
-  @if $filename == linkedin {
+  @if $filename == inbox {
     $char: "\E00E";
   }
-  @if $filename == location {
+  @if $filename == incubator {
     $char: "\E00F";
   }
-  @if $filename == logo {
+  @if $filename == info {
     $char: "\E010";
   }
-  @if $filename == long-arrow-left {
+  @if $filename == key-outline {
     $char: "\E011";
   }
-  @if $filename == magnifier {
+  @if $filename == lightbulb {
     $char: "\E012";
   }
-  @if $filename == message {
+  @if $filename == linkedin {
     $char: "\E013";
   }
-  @if $filename == plus {
+  @if $filename == location {
     $char: "\E014";
   }
-  @if $filename == star {
+  @if $filename == logo {
     $char: "\E015";
   }
-  @if $filename == twitter {
+  @if $filename == long-arrow-left {
     $char: "\E016";
   }
-  @if $filename == user-outline {
+  @if $filename == magnifier {
     $char: "\E017";
   }
-  @if $filename == vcfund {
+  @if $filename == message {
     $char: "\E018";
+  }
+  @if $filename == newspaper {
+    $char: "\E019";
+  }
+  @if $filename == plus {
+    $char: "\E01A";
+  }
+  @if $filename == rocket {
+    $char: "\E01B";
+  }
+  @if $filename == star {
+    $char: "\E01C";
+  }
+  @if $filename == tachometer {
+    $char: "\E01D";
+  }
+  @if $filename == twitter {
+    $char: "\E01E";
+  }
+  @if $filename == user-outline {
+    $char: "\E01F";
+  }
+  @if $filename == vcfund {
+    $char: "\E020";
   }
 
   @return $char;
@@ -129,8 +153,20 @@
 .icon-bell {
   @include icon(bell);
 }
+.icon-bill {
+  @include icon(bill);
+}
 .icon-bolt {
   @include icon(bolt);
+}
+.icon-building {
+  @include icon(building);
+}
+.icon-calendar {
+  @include icon(calendar);
+}
+.icon-code-sheet {
+  @include icon(code-sheet);
 }
 .icon-event {
   @include icon(event);
@@ -153,6 +189,9 @@
 .icon-key-outline {
   @include icon(key-outline);
 }
+.icon-lightbulb {
+  @include icon(lightbulb);
+}
 .icon-linkedin {
   @include icon(linkedin);
 }
@@ -171,11 +210,20 @@
 .icon-message {
   @include icon(message);
 }
+.icon-newspaper {
+  @include icon(newspaper);
+}
 .icon-plus {
   @include icon(plus);
 }
+.icon-rocket {
+  @include icon(rocket);
+}
 .icon-star {
   @include icon(star);
+}
+.icon-tachometer {
+  @include icon(tachometer);
 }
 .icon-twitter {
   @include icon(twitter);

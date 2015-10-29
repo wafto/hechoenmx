@@ -18,6 +18,10 @@ import webpackConfig from './webpack.config';
 import iconfont from 'gulp-iconfont';
 import iconfontCSS from 'gulp-iconfont-css';
 
+// Images
+import imagemin from 'gulp-imagemin';
+import pngquant from 'imagemin-pngquant';
+
 gulp.task('webpack', () => {
   return gulp.src('./client/app/app.js')
       .pipe(webpack(webpackConfig))
@@ -52,17 +56,27 @@ gulp.task('iconfont', function() {
     .pipe(gulp.dest('./public/assets'));
 });
 
+gulp.task('images', () => {
+  return gulp.src('./client/assets/images/**/')
+    .pipe(imagemin({
+      progressive: true,
+      use: [pngquant()]
+    }))
+    .pipe(gulp.dest('./public/assets'));
+});
+
 gulp.task('clean', () => {
   return del(['./public/assets']);
 });
 
 gulp.task('build', (callback) => {
-  runSequence('clean', 'iconfont', 'sass', 'webpack', callback);
+  runSequence('clean', 'iconfont', 'sass', 'images', 'webpack', callback);
 });
 
 gulp.task('watch', () => {
   watch('./client/app/**/*', () => gulp.start('webpack'));
   watch('./client/assets/scss/**/*.scss', () => gulp.start('sass'));
+  watch('./client/assets/images/**/*', () => gulp.start('images'));
   watch('./client/assets/svg/**/*.svg', () => gulp.start('iconfont'));
 });
 

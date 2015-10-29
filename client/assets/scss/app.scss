@@ -28,6 +28,13 @@ $font-family-sans-serif: Poppins, "Helvetica Neue", Helvetica, Arial, sans-serif
 @import "components/sessions";
 @import "components/row_form_group";
 
+// PAGES
+@import "pages/onboarding";
+
+body, html {
+  height: 100%;
+}
+
 p {
   font-size: 12px;
   color: $gray;

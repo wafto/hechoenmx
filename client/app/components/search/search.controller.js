@@ -2,7 +2,7 @@
 
 export default class SearchController {
   /*@ngInject*/
-  constructor($state, $rootScope, $previousState, searchService) {
+  constructor($state, $rootScope, $previousState, searchService, onboardingService) {
     this.previousState = $previousState;
     this.searchService = searchService;
     this.state = $state;
