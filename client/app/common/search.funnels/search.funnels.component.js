@@ -1,7 +1,7 @@
 'use strict';
 
-import template from 'common/search.header/search.header';
-import controller from 'common/search.header/search.header.controller';
+import template from 'common/search.funnels/search.funnels';
+import controller from 'common/search.funnels/search.funnels.controller';
 
 export default () => {
   return {
@@ -12,4 +12,4 @@ export default () => {
     controllerAs: 'vm',
     bindToController: true
   };
-}
+};

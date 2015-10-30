@@ -24,6 +24,7 @@ $font-family-sans-serif: Poppins, "Helvetica Neue", Helvetica, Arial, sans-serif
 // COMPONENTS
 @import "components/search.header";
 @import "components/search.map";
+@import "components/search.filters";
 @import "components/user.menu";
 @import "components/map.content";
 @import "components/profile";
