@@ -53,10 +53,15 @@ export default class SearchMapController {
 
     $('body').on('click', '.pin-popup-message', function(event) {
       let {id, name} = getDataFromPin.call(this);
-
       self.modalsService.message({id, name});
       event.preventDefault();
     });
+  }
+
+  unbindEvents() {
+    $('body').off('click', '.pin-popup-profile');
+    $('body').off('click', '.pin-popup-add');
+    $('body').off('click', '.pin-popup-message');
   }
 
   onResultsChange(newResults) {
@@ -70,6 +75,7 @@ export default class SearchMapController {
 
     if (this.markers) {
       this.map.removeLayer(this.markers);
+      this.unbindEvents();
     }
 
     for (let result of this.results) {
@@ -82,6 +88,7 @@ export default class SearchMapController {
 
     this.markers = markers;
     this.map.addLayer(markers);
+    this.bindEvents();
   }
 
   generateMarkerHTMLContent({id, 'picture_url':pictureUrl, name, description}) {
