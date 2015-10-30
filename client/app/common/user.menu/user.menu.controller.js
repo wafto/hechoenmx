@@ -2,27 +2,19 @@
 
 export default class SearchHeaderController {
   /*@ngInject*/
-  constructor(userService, $uibModal, $state) {
+  constructor(userService, $state, modalsService) {
+    this.modalsService = modalsService;
     this.state = $state;
-    this.uibModal = $uibModal;
     this.userService = userService;
     this.isLoggedIn = this.userService.isLoggedIn;
   }
 
   openLoginModal() {
-    this.uibModal.open({
-      animation: true,
-      template: '<login></login>',
-      size: 'medium'
-    });
+    this.modalsService.login();
   }
 
   openSignupModal() {
-    this.uibModal.open({
-      animation: true,
-      template: '<signup></signup>',
-      size: 'medium'
-    });
+    this.modalsService.signup();
   }
 
   logout() {
@@ -30,9 +22,5 @@ export default class SearchHeaderController {
     this.state.go('search', {}, {
       reload: true
     });
-  }
-
-  doStuff() {
-    console.log(this.userService.isLoggedIn);
   }
 }

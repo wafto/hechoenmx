@@ -2,23 +2,19 @@
 
 export default class LoginController {
   /*@ngInject*/
-  constructor($scope, $state, userService) {
+  constructor($scope, $state, $uibModalInstance, userService) {
+    this.modal = $uibModalInstance;
     this.state = $state;
-    this.scope = $scope;
     this.email = '';
     this.password = '';
     this.userService = userService;
   }
 
-  close() {
-    this.scope.$parent.$close();
-  }
-
   login() {
-    this.userService.login(this.email, this.password).then((error, user) => {
+    this.userService.login(this.email, this.password).then((error) => {
       if (error) return;
 
-      this.close();
+      this.modal.close();
 
       this.state.go('search', {}, {
         reload: true

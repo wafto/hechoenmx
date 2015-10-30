@@ -3,11 +3,37 @@
 import angular from 'angular';
 import messageTemplate from 'modals/message/message';
 import messageController from 'modals/message/message.controller';
+import loginTemplate from 'modals/login/login.html';
+import loginController from 'modals/login/login.controller';
+import signupTemplate from 'modals/signup/signup.html';
+import signupController from 'modals/signup/signup.controller';
 
 class ModalsService {
   /*@ngInject*/
   constructor($uibModal) {
     this.uibModal = $uibModal;
+  }
+
+  login() {
+    this.uibModal.open({
+      animation: true,
+      template: loginTemplate,
+      controller: loginController,
+      controllerAs: 'vm',
+      bindToController: true,
+      size: 'medium'
+    });
+  }
+
+  signup() {
+    this.uibModal.open({
+      animation: true,
+      template: signupTemplate,
+      controller: signupController,
+      controllerAs: 'vm',
+      bindToController: true,
+      size: 'medium'
+    });
   }
 
   message(user) {
