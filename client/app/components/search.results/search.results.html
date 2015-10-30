@@ -4,13 +4,28 @@
     <h6><strong>{{vm.results.length}}</strong> resultados encontrados</h6>
   </div>
   <div class="search-filters">
-    <a href=""class="search-filters__filter active">
+    <a
+      href=""
+      class="search-filters__filter"
+      ng-class="{active: vm.params.sort === 'closest'}"
+      ng-click="vm.makeSortedSearch('closest')"
+    >
       <span class="icon-location"></span> Cercanos
     </a>
-    <a href=""class="search-filters__filter">
+    <a
+      href=""
+      class="search-filters__filter"
+      ng-class="{active: vm.params.sort === 'popular'}"
+      ng-click="vm.makeSortedSearch('popular')"
+    >
       <span class="icon-star"></span> Populares
     </a>
-    <a href=""class="search-filters__filter">
+    <a
+      href=""
+      class="search-filters__filter"
+      ng-class="{active: vm.params.sort === 'recent'}"
+      ng-click="vm.makeSortedSearch('recent')"
+    >
       <span class="icon-bolt"></span> Recientes
     </a>
   </div>

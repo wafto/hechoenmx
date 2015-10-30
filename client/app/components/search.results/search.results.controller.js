@@ -21,4 +21,12 @@ export default class SearchResultsController {
   handleAddUser(id, name) {
     this.networkService.add({id, name});
   }
+
+  makeSortedSearch(filter) {
+    this.state.go('search', {
+      sort: filter
+    }, {
+      notify: false
+    });
+  }
 }

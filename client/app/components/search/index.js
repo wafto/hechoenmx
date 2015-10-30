@@ -8,7 +8,7 @@ export default angular
   .module('search', [uiRouter])
   .config( /*@ngInject*/ ($stateProvider) => {
     $stateProvider.state('search', {
-      url: '/search?query&filters',
+      url: '/search?query&sort&filters',
       template: '<search></search>'
     });
   })

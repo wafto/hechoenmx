@@ -2,15 +2,16 @@
 
 export default class SearchController {
   /*@ngInject*/
-  constructor($state, $rootScope, $previousState, searchService, onboardingService) {
+  constructor($state, $rootScope, $previousState, searchService) {
     this.previousState = $previousState;
     this.searchService = searchService;
     this.state = $state;
     this.results = [];
     this.loading = true;
+    this.params = this.state.params;
 
-    if ($state.params.query) {
-      this.fetchFromService($state.params.query);
+    if (this.params.query) {
+      this.fetchFromService(this.params.query);
     }
 
     $rootScope.$on('$locationChangeSuccess', this.onUpdate.bind(this));
@@ -18,7 +19,7 @@ export default class SearchController {
 
   onUpdate() {
     let query = this.state.params.query;
-    if (!query) return;
+    this.params = this.state.params;
     this.fetchFromService(query);
   }
 

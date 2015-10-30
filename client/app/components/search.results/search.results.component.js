@@ -7,7 +7,8 @@ export default () => {
   return {
     restrict: 'E',
     scope: {
-      results: '@'
+      results: '@',
+      params: '='
     },
     template,
     controller,
