@@ -6,11 +6,18 @@ const FILTERS = ['incubators', 'calls', 'founding', 'associations', 'training', 
 
 export default class SearchFunnelsController {
   /*@ngInject*/
-  constructor($state) {
+  constructor($state, localStorageService) {
     let filters = {};
 
-    this.open = false;
+    this.localStorage = localStorageService;
     this.state = $state;
+
+    if (typeof this.localStorage.get('open-filters') == 'null') {
+      localStorageService.set('open-filters', true);
+      this.open = true;
+    } else {
+      this.open = this.localStorage.get('open-filters');
+    }
 
     FILTERS.forEach(filter => filters[filter] = this.isFunnelActive(filter));
     this.filters = filters;
@@ -40,12 +47,13 @@ export default class SearchFunnelsController {
 
   openFunnels() {
     this.open = !this.open;
+    this.localStorage.set('open-filters', this.open);
   }
 
   isAtLeastOneActive() {
     let returnValue = false;
 
-    _.forEach(this.filters, (value, filter) => {
+    _.forEach(this.filters, (value) => {
       if (value) {
         returnValue = true;
       }

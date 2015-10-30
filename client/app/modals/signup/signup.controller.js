@@ -2,7 +2,8 @@
 
 export default class SignupController {
   /*@ngInject*/
-  constructor($uibModalInstance, ngNotify) {
+  constructor($uibModalInstance,  modalsService, ngNotify) {
+    this.modalsService = modalsService;
     this.ngNotify = ngNotify;
     this.modal = $uibModalInstance;
   }
@@ -10,5 +11,10 @@ export default class SignupController {
   handleSignup() {
     this.ngNotify.set('Instrucciones enviadas correctamente.');
     this.modal.close();
+  }
+
+  login() {
+    this.modal.close();
+    this.modalsService.login();
   }
 }

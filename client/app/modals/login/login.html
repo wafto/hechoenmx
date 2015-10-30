@@ -2,7 +2,7 @@
   <form ng-submit="vm.login()">
     <div class="session-modal__head">
       <h2>¡Bienvenido de nuevo!</h2>
-      <p>¿No tienes cuenta? <a href="">Registrate aquí</a></p>
+      <p>¿No tienes cuenta? <a href="" ng-click="vm.register()">Registrate aquí</a></p>
     </div>
     <div class="form-inputs-group">
       <div class="form-inputs-group-row form-inputs-group-row-icon">
@@ -11,7 +11,7 @@
       </div>
       <div class="form-inputs-group-row form-inputs-group-row-icon">
         <span class="icon icon-key-outline"></span>
-        <input type="password" placeholder="Constraseña" ng-model="vm.password">
+        <input type="password" placeholder="Contraseña" ng-model="vm.password">
       </div>
     </div>
     <div class="session-modal__forgot">

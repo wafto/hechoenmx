@@ -19,10 +19,10 @@
       </a>
     </div>
     <div class="profile__actions">
-      <button type="button" class="btn btn-primary btn-sm">
+      <button type="button" class="btn btn-primary btn-sm" ng-click="vm.handleAddUser(vm.profile.id, vm.profile.name)">
         <span class="icon-plus"></span> Agregar
       </button>
-      <button type="button" class="btn btn-primary btn-sm">
+      <button type="button" class="btn btn-primary btn-sm" ng-click="vm.handleMessage(vm.profile)">
         <span class="icon-message"></span> Mensaje
       </button>
     </div>

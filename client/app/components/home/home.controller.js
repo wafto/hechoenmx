@@ -26,9 +26,10 @@ export default class HomeController {
   handleQuerySearch() {
     this.onboardingService.setQuery(this.query);
     this.onboardingService.setBoarded();
-    this.step = 1;
+
     this.state.go('search', {
-      query: this.query
+      query: this.query,
+      filters: this.onboardingService.interestedIn
     }, {
       location: 'replace'
     });

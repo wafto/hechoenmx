@@ -50,7 +50,7 @@ const PORTFOLIO = [{
 
 const NETWORK_COUNT = {
   followers: '1231',
-  following: '9999921'
+  following: '951'
 };
 
 const FOLLOWERS = [{

@@ -11,8 +11,7 @@ export default class SearchHeaderController {
     let shouldRefresh = this.state.current.name != 'search';
 
     this.state.go('search', {
-      query: this.query,
-      sort: this.state.params.sort || 'closest'
+      query: this.query
     }, {
       notify: shouldRefresh
     });

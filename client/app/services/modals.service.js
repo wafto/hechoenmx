@@ -10,7 +10,9 @@ import signupController from 'modals/signup/signup.controller';
 
 class ModalsService {
   /*@ngInject*/
-  constructor($uibModal) {
+  constructor($uibModal, userService, ngNotify) {
+    this.ngNotify = ngNotify;
+    this.userService = userService;
     this.uibModal = $uibModal;
   }
 
@@ -37,16 +39,20 @@ class ModalsService {
   }
 
   message(user) {
-    this.uibModal.open({
-      animation: true,
-      template: messageTemplate,
-      controller: messageController,
-      controllerAs: 'vm',
-      bindToController: true,
-      resolve: {
-        user: () => user
-      }
-    });
+    if (this.userService.isLoggedIn) {
+      this.uibModal.open({
+        animation: true,
+        template: messageTemplate,
+        controller: messageController,
+        controllerAs: 'vm',
+        bindToController: true,
+        resolve: {
+          user: () => user
+        }
+      });
+    } else {
+      this.ngNotify.set('Necesitas iniciar sesión o registrarte.', 'warn');
+    }
   }
 }
 

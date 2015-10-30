@@ -2,7 +2,8 @@
 
 export default class LoginController {
   /*@ngInject*/
-  constructor($scope, $state, $uibModalInstance, userService) {
+  constructor($scope, $state, $uibModalInstance, userService, modalsService) {
+    this.modalsService = modalsService;
     this.modal = $uibModalInstance;
     this.state = $state;
     this.email = '';
@@ -20,5 +21,10 @@ export default class LoginController {
         reload: true
       });
     });
+  }
+
+  register() {
+    this.modal.close();
+    this.modalsService.signup();
   }
 }
