@@ -28,10 +28,18 @@
       </div>
     </a>
     <div class="search-results__item__actions">
-      <a href="" class="search-results__item__actions__action">
+      <a
+        href=""
+        class="search-results__item__actions__action"
+        ng-click="vm.handleMessage(result)"
+      >
         <span class="icon-message"></span> Mensaje
       </a>
-      <a href="" class="search-results__item__actions__action">
+      <a
+        href=""
+        class="search-results__item__actions__action"
+        ng-click="vm.handleAddUser(result.id, result.name)"
+      >
         <span class="icon-plus"></span> Agregar
       </a>
       <a

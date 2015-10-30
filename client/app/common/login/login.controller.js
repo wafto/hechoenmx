@@ -2,12 +2,12 @@
 
 export default class LoginController {
   /*@ngInject*/
-  constructor($scope, $state, UserService) {
+  constructor($scope, $state, userService) {
     this.state = $state;
     this.scope = $scope;
     this.email = '';
     this.password = '';
-    this.userService = UserService;
+    this.userService = userService;
   }
 
   close() {

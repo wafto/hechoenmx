@@ -32,8 +32,12 @@
     right: 0;
     display: flex;
     justify-content: center;
-    align-items: center;
-    align-items: 'stretch';
+    align-items: stretch;
+    @include max-screen-height(780px) {
+      align-items: unset;
+      position: relative;
+      padding: 50px 0;
+    }
   }
 }
 

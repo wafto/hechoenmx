@@ -44,4 +44,4 @@ export default class UserService {
 
 export default angular
   .module('hemx.services.user', [])
-  .service('UserService', UserService);
+  .service('userService', UserService);

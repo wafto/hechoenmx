@@ -6,11 +6,13 @@ import mapboxConfig from 'config/mapbox.config';
 
 export default class SearchMapController {
   /*@ngInject*/
-  constructor($scope, $state, $attrs, geoService) {
+  constructor($scope, $state, $attrs, geoService, modalsService, networkService) {
     this.results = [];
     this.state = $state;
     this.markers = null;
     this.geoService = geoService;
+    this.networkService = networkService;
+    this.modalsService = modalsService;
 
     this.map = L.mapbox.map('search-map', mapboxConfig.mapId, {
       zoomControl: false
@@ -31,14 +33,31 @@ export default class SearchMapController {
 
   bindEvents() {
     let self = this;
+    let getDataFromPin = function() {
+      return $(this).closest('.pin-popup').data();
+    };
 
     $('body').on('click', '.pin-popup-profile', function(event) {
-      let profileId = $(this).closest('.pin-popup').data().id;
+      let {id:profileId} = getDataFromPin.call(this);
+
       self.state.go('profile', {profileId});
       event.preventDefault();
     });
-  }
 
+    $('body').on('click', '.pin-popup-add', function(event) {
+      let {id, name} = getDataFromPin.call(this);
+
+      self.networkService.add({id, name});
+      event.preventDefault();
+    });
+
+    $('body').on('click', '.pin-popup-message', function(event) {
+      let {id, name} = getDataFromPin.call(this);
+
+      self.modalsService.message({id, name});
+      event.preventDefault();
+    });
+  }
 
   onResultsChange(newResults) {
     this.results = JSON.parse(newResults);
@@ -67,15 +86,15 @@ export default class SearchMapController {
 
   generateMarkerHTMLContent({id, 'picture_url':pictureUrl, name, description}) {
     return `
-      <div class="pin-popup" data-id="${id}">
+      <div class="pin-popup" data-id="${id}" data-name="${name}">
         <div class="pin-popup__picture" style="background-image: url('${pictureUrl}')"></div>
         <h1>${name}</h1>
         <p>${description}</p>
-        <a href="" class="pin-popup-add">
-          <span class="icon-plus"></span> Agregar
-        </a>
         <a href="" class="pin-popup-message">
           <span class="icon-message"></span> Mensaje
+        </a>
+        <a href="" class="pin-popup-add">
+          <span class="icon-plus"></span> Agregar
         </a>
         <a href="" class="pin-popup-profile">
           <span class="icon-info"></span> Perfil
@@ -111,8 +130,5 @@ export default class SearchMapController {
 
   setMapView() {
     this.map.setView(this.geoService.latLng);
-  }
-
-  onMarkerClick() {
   }
 }

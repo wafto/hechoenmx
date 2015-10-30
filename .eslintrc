@@ -14,7 +14,6 @@ env:
 extends: eslint:recommended
 
 ecmaFeatures:
-  jsx: true
   experimentalObjectRestSpread: true
 
 globals:

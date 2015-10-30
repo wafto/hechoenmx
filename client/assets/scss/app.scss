@@ -11,6 +11,7 @@ $font-family-sans-serif: Poppins, "Helvetica Neue", Helvetica, Arial, sans-serif
 // MIXINS
 @import "mixins/z_index";
 @import "mixins/cover_background";
+@import "mixins/media_queries";
 
 // COMMON
 @import "common/variables";
@@ -28,6 +29,9 @@ $font-family-sans-serif: Poppins, "Helvetica Neue", Helvetica, Arial, sans-serif
 @import "components/profile";
 @import "components/sessions";
 @import "components/row_form_group";
+
+// MODALS
+@import "modals/message";
 
 // PAGES
 @import "pages/onboarding";

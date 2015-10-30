@@ -2,7 +2,9 @@
 
 export default class SearchResultsController {
   /*@ngInject*/
-  constructor($state, $attrs) {
+  constructor($state, $attrs, modalsService, networkService) {
+    this.networkService = networkService;
+    this.modalsService = modalsService;
     this.state = $state;
     this.results = [];
     $attrs.$observe('results', this.onResultsChange.bind(this));
@@ -12,9 +14,11 @@ export default class SearchResultsController {
     this.results = JSON.parse(newResults);
   }
 
-  goToProfile(profileId) {
-    this.state.go('profile', {
-      profileId: profileId
-    });
+  handleMessage({id, name}) {
+    this.modalsService.message({id, name});
+  }
+
+  handleAddUser(id, name) {
+    this.networkService.add({id, name});
   }
 }

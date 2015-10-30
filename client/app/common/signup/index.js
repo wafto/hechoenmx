@@ -4,5 +4,5 @@ import angular from 'angular';
 import Signup from 'common/signup/signup.component';
 
 export default angular
-  .module('user.signup', [])
+  .module('hemx.modals.signup', [])
   .directive('signup', Signup);

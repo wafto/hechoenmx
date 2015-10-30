@@ -15,6 +15,8 @@ import profileService from 'services/profile.service';
 import geoService from 'services/geo.service';
 import userService from 'services/user.service';
 import onboardingService from 'services/onboarding.service';
+import modalsService from 'services/modals.service';
+import networkService from 'services/network.service';
 
 L.mapbox.accessToken = mapboxConfig.accessToken;
 
@@ -28,6 +30,8 @@ let DEPENDENCIES = [
   profileService.name,
   userService.name,
   onboardingService.name,
+  modalsService.name,
+  networkService.name,
   'ngNotify',
   'ct.ui.router.extras',
   'angularMoment',

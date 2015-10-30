@@ -10,13 +10,17 @@
       border-top: 0;
     }
 
-    input {
+    input, textarea {
       padding: 14px 10px 10px 10px;
       display: block;
       width: 100%;
       background: transparent;
       border: 0;
       outline: none;
+    }
+
+    textarea {
+
     }
 
     &-icon {
