@@ -16,6 +16,8 @@ Desarrollar una plataforma para promover la presencia de empresas emergentes de 
 - Salvador Lopez Mendoza (simiographics@gmail.com)
 - Eduardo Ortiz Ramírez (edbr.or@gmail.com)
 
+### Video de funcionamiento +  Plan de Trabajo y Cronograma
+https://drive.google.com/folderview?id=0Bz71CcNvpZFDVTRaVkh6SlQtX2M&usp=sharing
 
 ### Manual de Instalación
 
