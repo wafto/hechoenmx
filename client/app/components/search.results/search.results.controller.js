@@ -6,12 +6,6 @@ export default class SearchResultsController {
     this.networkService = networkService;
     this.modalsService = modalsService;
     this.state = $state;
-    this.results = [];
-    $attrs.$observe('results', this.onResultsChange.bind(this));
-  }
-
-  onResultsChange(newResults) {
-    this.results = JSON.parse(newResults);
   }
 
   handleMessage({id, name}) {

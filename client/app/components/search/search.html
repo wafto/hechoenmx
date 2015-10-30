@@ -1,5 +1,8 @@
 <search-header></search-header>
 <ui-view>
-  <search-results params="vm.params" results="{{vm.results}}"></search-results>
+  <search-results params="vm.params" results="vm.results"></search-results>
 </ui-view>
+<div class="search-filters">
+
+</div>
 <search-map results="{{vm.results}}"></search-map>
