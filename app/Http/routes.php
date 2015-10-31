@@ -13,3 +13,8 @@ $api->version('v1', function ($api) {
     ]);
 
 });
+
+
+Route::get('/', function () {
+    return view('index');
+});

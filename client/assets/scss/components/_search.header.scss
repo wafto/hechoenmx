@@ -1,0 +1,77 @@
+.search-header {
+  z-index: z(header);
+  display: table;
+  position: fixed;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: $search-header-height;
+  background: $red;
+  box-shadow: 0px 2px 4px 0px rgba(0,0,0,0.20);
+  vertical-align: middle;
+
+  &__brand {
+    padding: 0 20px;
+    display: table-cell;
+    vertical-align: middle;
+    width: 120px;
+
+
+    a {
+      color: $white;
+
+      &:focus, &:hover {
+        text-decoration: none;
+      }
+    }
+  }
+
+  &__form {
+    display: table-cell;
+    vertical-align: middle;
+  }
+
+  form {
+    position: relative;
+
+    &.focussed {
+      .icon {
+        color: $red;
+      }
+    }
+
+    .icon {
+      position: absolute;
+      left: 15px;
+      top: 8px;
+      color: $white;
+      font-size: 16px;
+      pointer-events: none;
+    }
+
+    input {
+      display: block;
+      height: 40px;
+      padding-left: 40px;
+      padding-right: 20px;
+      width: 100%;
+      border: 0;
+      color: $white;
+      outline: none;
+      background: #FF5D51;
+      box-shadow: 0px 1px 1px 0px rgba(0,0,0,0.09);
+      border-radius: $radius;
+      line-height: 23px;
+      @include placeholder {
+        color: $white;
+        line-height: 23px;
+      }
+    }
+  }
+
+  &__user {
+    display: table-cell;
+    width: 160px;
+    vertical-align: middle;
+  }
+}
