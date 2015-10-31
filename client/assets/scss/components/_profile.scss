@@ -60,8 +60,20 @@
     }
   }
 
+  &__meta {
+    margin-top: 10px;
+  }
+
+  &__type {
+    padding: 2px 4px 0;
+    margin-right: 2px;
+    background: $red;
+    color: $white;
+    font-size: 11px;
+    border-radius: $radius;
+  }
+
   &__old {
-    display: block;
     font-size: 12px;
     color: $gray;
     line-height: 20px;

@@ -2,7 +2,9 @@
 
 export default class ProfileAboutController {
   /*@ngInject*/
-  constructor($state, profileService) {
+  constructor($state, profileService, networkService, modalsService) {
+    this.modalsService = modalsService;
+    this.networkService = networkService;
     this.state = $state;
     this.profileService = profileService;
     this.currentTab = 'followers';
@@ -45,5 +47,13 @@ export default class ProfileAboutController {
       this.loading = false;
       this.following = following;
     });
+  }
+
+  handleAdd({id, name}) {
+    this.networkService.add({id, name});
+  }
+
+  handleMessage({id, name}) {
+    this.modalsService.message({id, name});
   }
 }

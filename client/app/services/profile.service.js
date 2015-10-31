@@ -5,7 +5,7 @@ import angular from 'angular';
 
 const PROFILE = {
   'id': '1',
-  'type': 'organization',
+  'type': 'facilitator',
   'category': 'incubator',
   'name': 'Wayra México',
   'latLng': ['19.389109', '-99.155045'],

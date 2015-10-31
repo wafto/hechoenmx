@@ -14,13 +14,13 @@
     <div class="user-card__main">
       <h5>{{user.name}}</h5>
       <div class="user-card__actions">
-        <a href="">
+        <a href="" ng-click="vm.handleAdd(user)">
           <span class="icon-plus"></span> Agregar
         </a>
-        <a href="">
+        <a href="" ng-click="vm.handleMessage(user)">
           <span class="icon-message"></span> Mensaje
         </a>
-        <a href="">
+        <a ui-sref="profile({profileId: user.id})">
           <span class="icon-info"></span> Perfil
         </a>
       </div>
@@ -32,13 +32,13 @@
     <div class="user-card__main">
       <h5>{{user.name}}</h5>
       <div class="user-card__actions">
-        <a href="">
+        <a href="" ng-click="vm.handleAdd(user)">
           <span class="icon-plus"></span> Agregar
         </a>
-        <a href="">
+        <a href="" ng-click="vm.handleMessage(user)">
           <span class="icon-message"></span> Mensaje
         </a>
-        <a href="">
+        <a ui-sref="profile({profileId: user.id})">
           <span class="icon-info"></span> Perfil
         </a>
       </div>
