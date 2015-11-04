@@ -29,7 +29,8 @@ export default class HomeController {
 
     this.state.go('search', {
       query: this.query,
-      filters: this.onboardingService.interestedIn
+      filters: this.onboardingService.interestedIn,
+      sort: 'closest'
     }, {
       location: 'replace'
     });
