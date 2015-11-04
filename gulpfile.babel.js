@@ -1,5 +1,6 @@
 'use strict';
 
+import _ from 'lodash';
 import gulp from 'gulp';
 import runSequence from 'run-sequence';
 import del from 'del';
@@ -22,10 +23,29 @@ import iconfontCSS from 'gulp-iconfont-css';
 import imagemin from 'gulp-imagemin';
 import pngquant from 'imagemin-pngquant';
 
-gulp.task('webpack', () => {
-  return gulp.src('./client/app/app.js')
-      .pipe(webpack(webpackConfig))
+function webpackTask(callback, watch) {
+  let config = webpackConfig;
+
+  if (watch) {
+    config = _.assign({}, config, {
+      watch: true
+    });
+  }
+
+  let stream =  gulp.src('./client/app/app.js')
+      .pipe(webpack(config))
       .pipe(gulp.dest('./public/assets'));
+
+  if (config.watch) {
+    callback();
+  } else {
+    return stream;
+  }
+}
+
+gulp.task('webpack', webpackTask);
+gulp.task('webpack:watch', (callback) => {
+  return webpackTask(callback, true);
 });
 
 gulp.task('sass', () => {
@@ -74,12 +94,11 @@ gulp.task('build', (callback) => {
 });
 
 gulp.task('watch', () => {
-  watch('./client/app/**/*', () => gulp.start('webpack'));
   watch('./client/assets/scss/**/*.scss', () => gulp.start('sass'));
   watch('./client/assets/images/**/*', () => gulp.start('images'));
   watch('./client/assets/svg/**/*.svg', () => gulp.start('iconfont'));
 });
 
 gulp.task('default', (callback) => {
-  runSequence('build', 'watch', callback);
+  runSequence('clean', 'iconfont', 'sass', 'images', 'webpack:watch', 'watch', callback);
 });
