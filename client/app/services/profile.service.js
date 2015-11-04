@@ -12,7 +12,7 @@ const PROFILE = {
   'description': 'Somos la aceleradora de empresas más importante de Latinoamérica.',
   'picture_url': 'https://pbs.twimg.com/profile_images/555515905401040896/FdTBA3iG.png',
   'expertise_areas': ['Incubadora', 'Start Ups', 'Mentoría', 'Software',
-    'Convocatorias', 'Eventos', 'Hardware', 'Tag', 'Mexico'],
+    'Convocatorias', 'Eventos', 'Hardware', 'Tag', 'Mexico', 'DF'],
   'address': 'Avenida Insurgentes Sur 318, Roma Norte, México D.F, 06700',
   'created_at': '2008-11-11',
   'site': 'http://startupweekend.org/',

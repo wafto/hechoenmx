@@ -9,7 +9,9 @@
     <div class="profile__meta">
       <span ng-if="vm.profile.type == 'facilitator'" class="profile__type">Dinamizador</span>
       <span ng-if="vm.profile.type == 'entrepreneur'" class="profile__type">Innovador</span>
-      <span class="profile__old">Miembro desde {{vm.profile.created_at | amDateFormat: 'MMMM YYYY'}}</span>
+      <span class="profile__old">
+        Miembro desde {{vm.profile.created_at | amDateFormat: 'MMMM YYYY'}}
+      </span>
     </div>
     <div class="social-links">
       <a title="{{vm.profile.site}}" target="_blank" ng-href="{{vm.profile.site}}" ng-if="vm.profile.site">
